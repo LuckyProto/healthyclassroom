@@ -1,0 +1,47 @@
+/* pages/notify/notify.wxss */
+@import "../../utils/videoList_common.wxss";
+.container_mine{
+    padding: 0;
+}
+.container_mine .userInfo{
+	width: 375px;
+	height: 154px;
+    background-color: #FFA334;
+}
+.container_mine .userInfo .img_userInfo{	
+	text-align: center;
+}
+.container_mine .userInfo .img_userInfo image{
+	width: 88px;
+	height: 88px;
+	border-radius: 50%;
+}
+.container_mine .userInfo text{
+	display: block;
+	font-size: 18px;
+	line-height: 42px;
+	text-align: center;
+}
+
+.container_mine .store_userInfo{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+.container_mine .store_userInfo view{
+	display: inline-block;
+	width: 50%;
+	background-color: #fff;
+	border: 0px solid #fff;
+	border-radius: 0;
+	text-align: center;
+	line-height: 48px;
+}
+.active{
+	color: #FFA334;
+}
+
+
+
+

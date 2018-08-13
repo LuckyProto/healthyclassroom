@@ -1,0 +1,73 @@
+<!--pages/notify/notify.wxml-->
+<view class="container_mine">
+	<view>
+		<button
+			wx:if='{{!userInfo}}' 
+			open-type="getUserInfo" 
+			bindgetuserinfo="userInfoHandler">
+			点击授权获取您的头像和昵称
+		</button>
+	</view>
+    <view class="userInfo">
+        <view class="img_userInfo">
+			<image src="{{userInfo.avatarUrl}}" background-size="cover">
+			</image> 
+		</view>	
+        <view class="text_userInfo">
+			<text class="name">{{userInfo.nickName}}</text>
+		</view>
+    </view>
+	<view class="store_userInfo">
+		<view 
+			bindtap='changePurchaseTab' 
+			class="{{purchaesTab ? 'active' : ''}}"
+		>已购买({{purchased}})</view>
+		<view 
+			bindtap='changeStoredTab' 
+			class="{{storedTab ? 'active' : ''}}"
+		>收藏({{storeNumber}})</view>
+	</view>
+	<view hidden="{{!purchaesTab}}">
+		<!-- 已购买部分 -->
+    	<block wx:for='{{purchaesdList}}'>
+			<view class="videoList">
+				<view class='left-videoList'>
+					<image src='{{item.courseImgUrl}}'/>
+				</view>
+				<view class='right-videoList'>
+					<view class='courseName'>{{item.courseName}}</view>
+					<block wx:for='{{item.doctor}}' wx:for-item="_item">
+						<view class='doctorName'>{{_item.doctorName}}-{{_item.doctorHospital}}</view>
+						<view class='jobTitle'>{{_item.jobTitle}}</view>
+					</block>
+					<view class='courseNumber'>
+						<image src='../../images/cutImg/lessons.png'></image>
+						<text>{{item.courseNumber}}</text>
+					</view>
+					<view><span class='courseTip'>{{item.courseTip}}</span><span class='coursePrice'>${{item.coursePrice}}</span></view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view hidden="{{!storedTab}}">
+    	<block wx:for='{{storedList}}'>
+			<view class="videoList">
+				<view class='left-videoList'>
+					<image src='{{item.courseImgUrl}}'/>
+				</view>
+				<view class='right-videoList'>
+					<view class='courseName'>{{item.courseName}}</view>
+					<block wx:for='{{item.doctor}}' wx:for-item="_item">
+						<view class='doctorName'>{{_item.doctorName}}-{{_item.doctorHospital}}</view>
+						<view class='jobTitle'>{{_item.jobTitle}}</view>
+					</block>
+					<view class='courseNumber'>
+						<image src='../../images/cutImg/lessons.png'></image>
+						<text>{{item.courseNumber}}</text>
+					</view>
+					<view><span class='courseTip'>{{item.courseTip}}</span><span class='coursePrice'>${{item.coursePrice}}</span></view>
+				</view>
+			</view>
+		</block>
+  	</view>
+</view>

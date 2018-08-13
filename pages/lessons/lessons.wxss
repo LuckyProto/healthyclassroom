@@ -1,0 +1,85 @@
+/* pages/lessons/lessons.wxss */
+@import "../../utils/videoList_common.wxss";
+@import "../template/template.wxss";
+.videoContainer_lesson image{
+	width: 750rpx;
+	height: 320rpx;
+}
+.toDoctorList{
+	overflow: hidden;
+}
+/* .pdftitle{
+	float: left;
+} */
+.more{
+	float: right;
+}
+.doctorsSwiper{
+	width: 750rpx;
+	overflow: hidden;
+	box-sizing:border-box;
+	border-bottom: 1px solid #eee;
+}
+.swiper{
+	position: relative;
+}
+.pdfContainer_lesson .more{
+	display: inline;
+	line-height: 96rpx;
+	padding-right: 32rpx;
+	font-size: 32rpx;
+	color: #FFA334;
+}
+.store_userInfo{
+	width: 100%;
+	height: 48px;
+	background: #fff;
+}
+.store_userInfo>view{
+	display: inline-block;
+	width: 50%;
+	background-color: #fff;
+	border: 0px solid #fff;
+	border-bottom: 1px solid #eee; 
+	border-radius: 0;
+	text-align: center;
+	line-height: 48px;
+}
+.yellowBar-purchaes{
+	position: absolute;
+	left: 166rpx;
+	width: 48rpx;
+	height: 4rpx;
+	background: #FFA334;  
+}
+.yellowBar-stored{
+	position: absolute;
+	left: 542rpx;
+	width: 48rpx;
+	height: 4rpx;
+	background: #FFA334;  
+}
+.active{
+	color: #FFA334;
+}
+.rmb{
+	position:absolute;
+	left:250rpx;
+	font-size: 32rpx;
+	color:#FFA334;
+}
+.rmbImg{
+	width: 24rpx;
+	height:24rpx;
+	margin-right: 10rpx;
+}
+.buyBtn{
+	width:180rpx;
+	height:76rpx;
+	background:#FFA334;
+	position:absolute;
+	left:532rpx;
+	top:26rpx;
+	border-radius:38rpx;
+	line-height:76rpx;
+}

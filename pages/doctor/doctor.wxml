@@ -1,0 +1,66 @@
+<!--pages/doctor/doctor.wxml-->
+<import src ="../template/template.wxml"/>
+<view class="doctor">
+	<view class="avatar">
+		<image src="{{doctor.doctor_image}}"></image>
+	</view>
+	<view class="docName">
+		<text>{{doctor.doctor_name}}</text>
+	</view>
+	<view class="tip">
+		<image wx:if="{{doctor.docLabel[0] ? true : false}}" src="../../images/cutImg/label_highest.png"></image>
+		<image wx:if="{{doctor.docLabel[1] ? true : false}}"  src="../../images/cutImg/label_famous_doctor.png"></image>
+		<image wx:if="{{doctor.docLabel[2] ? true : false}}"  src="../../images/cutImg/label_explanation.png"></image>
+		
+	</view>
+	<view class="docHospital">
+		<text>{{doctor.hospital_name}}</text>
+	</view>
+	<view class="docHospital">
+		<text>{{doctor.dept_name}}-</text>
+		<text>{{doctor.rank}}</text>
+	</view>
+</view>
+<view class="interval"></view>
+<view class="skill">
+	<view>
+		<text class="pdftitle">专业擅长</text>
+	</view>
+	<view class="content">
+		<text>{{doctor.specialty}}</text>
+	</view>
+</view>
+<view class="relationLessons">
+	<view>
+		<text class="pdftitle">相关课程</text>
+	</view>
+	<!-- 医生视频课程部分 -->
+  	<view>
+    	<block wx:for='{{videoList}}'>
+	  		<template 
+			  	is="video" 
+			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.specialty, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price}}"/>
+		</block>
+  	</view>
+	<!-- <view class="lessonsList">
+    	<block wx:for='{{videoList}}'>
+			<view class="videoList" bindtap="navigateToLesson">
+				<view class='left-videoList'>
+					<image src='{{item.courseImgUrl}}'/>
+				</view>
+				<view class='right-videoList'>
+					<view class='courseName'>{{item.courseName}}</view>
+					<block wx:for='{{item.doctor}}' wx:for-item="_item">
+						<view class='doctorName'>{{_item.doctorName}}-{{_item.doctorHospital}}</view>
+						<view class='jobTitle'>{{_item.jobTitle}}</view>
+					</block>
+					<view class='courseNumber'>
+						<image src='../../images/cutImg/lessons.png'></image>
+						<text>{{item.courseNumber}}</text>
+					</view>
+					<view><span class='courseTip'>{{item.courseTip}}</span><span class='coursePrice'>${{item.coursePrice}}</span></view>
+				</view>
+			</view>
+		</block>
+  	</view> -->
+</view>

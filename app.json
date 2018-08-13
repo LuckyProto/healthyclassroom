@@ -1,0 +1,42 @@
+{
+  	"pages":[
+        "pages/index/index", 
+        "pages/notify/notify",
+		"pages/lesson/lesson",
+		"pages/lessons/lessons",
+		"pages/doctors/doctors",
+		"pages/doctor/doctor"
+  	],
+  	"window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "健康课",
+        "navigationBarTextStyle":"black",
+		"enablePullDownRefresh": true,
+		"onReachBottomDistance": 50
+  	},
+  	"tabBar": {
+	  	"color": "#7F8389",
+		"selectedColor": "#FFA334",
+		"backgroundColor": "#F7F7FA",
+	  	"list": [
+		    {
+		  		"pagePath": "pages/index/index",
+			  	"text": "首页",
+				"iconPath": "./images/cutImg/home.png",
+				"selectedIconPath": "./images/cutImg/home_select.png"
+		    },
+		    {
+			   	"pagePath": "pages/notify/notify",
+			   	"text": "我的",
+				"iconPath": "./images/cutImg/mine.png",
+				"selectedIconPath": "./images/cutImg/mine_select.png"
+		    }
+	  	]
+  	},
+  	"networkTimeout": {
+		"request": 10000,
+		"downloadFile": 10000
+	},
+	"debug": true
+}

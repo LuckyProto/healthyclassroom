@@ -1,0 +1,120 @@
+<!--pages/lessons/lessons.wxml-->
+<import src ="../template/template.wxml"/>
+<view class="container_lesson">
+	<view class="videoContainer_lesson">
+		<!-- <video
+			id="myVideo" 			src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" 
+			controls>
+		</video> -->
+		<view 
+			class="video-cover"
+			wx:if="{{lesson.is_free == 0 && isPurchased == 'false'}}">
+			<image src="../../images/cutImg/lock.png"></image>
+		</view>
+		<video
+			id="myVideo"
+			src="{{lesson.attList[0].resources_url}}" 
+			controls
+			show-center-play-btn='false'
+		>
+		</video>
+		<view class="lessonDetail">
+			<view class="lessonName">
+				<text>{{lesson.class_name}}</text>
+			</view>
+			<view  class="lessonsOfNum floatLeft">
+				<image src="../../images/cutImg/lessons.png"></image>
+				<text class="lessonOfListeners">1/3</text>
+			</view>
+			<view  class="lessonsOfNum floatRight">
+				<image src="../../images/cutImg/watched.png"></image>
+				<text class="lessonOfListeners">210</text>
+			</view>
+		</view>
+	</view>
+	<view class="interval"></view>
+	<view class="pdfContainer_lesson">
+		<view>
+			<text class="pdftitle">课件</text>
+		</view>
+		<view class="pdfs">
+			<image src="../../images/course/lesson1.png"></image>
+			<image src="../../images/course/lesson1.png"></image>
+			<image src="../../images/course/lesson1.png"></image>
+		</view>
+	</view>
+	<view class="interval"></view>
+	<view class="pdfContainer_lesson">
+		<view>
+			<text class="pdftitle">主讲医生</text>
+		</view>
+		<view class="lessonDoc scopeborder">
+		<template 
+				is="doctor" 
+				data="{{doctorImg: lesson.docInfo.doctor_image, doctorName:lesson.docInfo.doctor_name,isHostest:lesson.docInfo.docLabel[0] ? true: false,isFamous:lesson.docInfo.docLabel[1] ? true: false,isCareful:lesson.docInfo.isCareful, doctorHospital:lesson.docInfo.hospital_name,dept_name:lesson.docInfo.dept_name, jobTitle:lesson.docInfo.rank, doctorid: lesson.docInfo.doctor_id}}"/>
+			<!-- <view class="docDetail_lessonDoc">
+				<view class="docName_lessonDoc">	
+					<text>张玲</text>
+					<image src="../../images/cutImg/label_highest.png"></image>
+					<image src="../../images/cutImg/label_famous_doctor.png"></image>
+				</view>
+				<view  class="docHos_lessonDoc">
+					<text>北京协和医院</text>
+				</view>
+				<view class="docPosition_lessonDoc">
+					<text>内分泌科 主任医师</text>
+				</view>
+			</view> -->
+		</view>
+	</view>
+	<view class="lessonContent">
+		<view>
+			<text class="pdftitle">课程内容</text>
+		</view>
+		<view class="content_lessonContent">
+			<view class="contentTitle_lessonContent">
+				<text>此课程主要讲解:</text>
+			</view>
+			<view class="contentTitle_lessonContent">
+				<text>{{lesson.docInfo.specialty}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="interval"></view> -->
+	<!-- <view class="comment">
+		<view>
+			<text class="pdftitle">课程讨论</text>
+		</view>
+		<view class="content">
+			<view class="userInfo">
+				<view class="userAva">
+					<image src='../../images/course/comment1.png'>
+					</image>
+				</view>
+				<view class="userNandT">
+					<text class="userName">乔治</text>
+					<text class="userTime">2018-05-01</text>
+				</view>
+			</view>
+			<view class="detail">
+				<text>看了这节课觉得很有用，甲状腺疾病真的不能掉以轻心</text>
+			</view>
+		</view>
+	</view> -->
+	<template 
+		is="lessonBottom"
+		data="{{isPurchased: isPurchased, isStored:isStored ? true : false, coursePrice:lesson.price}}">
+	</template>
+	<!-- <view class="userTools">
+		<image class="share" src='../../images/cutImg/share.png'></image>
+		<image class="collection" src='../../images/cutImg/collection.png'></image>
+		<view class="line"></view>
+		<input 
+			type='text'
+			class="commentInput" 
+			placeholder="写评论..." 
+			focus 
+			selection-start="1" 
+			selection-end="-1"/>
+	</view> -->
+</view>

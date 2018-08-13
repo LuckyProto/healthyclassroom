@@ -1,0 +1,11 @@
+<!--pages/doctor/doctor.wxml-->
+<import src ="../template/template.wxml"/>
+<view class="doctorsSwiper">
+	<view class="swiper" style="width:{{width_swiperWriper}}rpx; left:{{moveLeft}}rpx">
+		<block wx:for="{{doctors}}">
+			<template 
+				is="doctor" 
+				data="{{doctorImg: item.doctor_image, doctorName:item.doctor_name,isHostest:item.docLabel[0] ? true: false,isFamous:item.docLabel[1] ? true: false,isCareful:item.isCareful, doctorHospital:item.hospital_name, dept_name: item.dept_name, jobTitle:item.rank, doctorid: item.doctor_id}}"/>
+		</block> 
+	</view>
+</view> 

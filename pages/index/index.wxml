@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<import src ="../template/template.wxml"/>
+<view class="container">
+  	<view class="title-index">
+		健康课
+  	</view>
+	<!-- 轮播图部分 -->
+	<swiper 
+		class="swiper-index" 
+		indicator-dots='{{imgPro.indicatorDots}}' 
+		indicator-color='{{imgPro.indicatorColor}}' 
+		indicator-active-color='{{imgPro.indicatorActiveColor}}'
+		autoplay='{{imgPro.autoplay}}'
+		interval='{{imgPro.interval}}'
+		duration='{{imgPro.duration}}'
+	>
+		<block wx:for="{{imgPro.imgUrls}}">
+			<swiper-item class="swiper-item-index">
+				<image src="{{item}}" class="img-index"/>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- 首页视频课程部分 -->
+  	<view>
+    	<block wx:for='{{videoList}}'>
+	  		<template 
+			  	is="video" 
+			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.specialty, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price}}"/>
+		</block>
+  	</view>
+	<view class="no-more" wx:if="{{!is_all}}">没有更多数据</view>
+</view>

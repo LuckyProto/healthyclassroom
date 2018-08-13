@@ -1,0 +1,209 @@
+/*套课模块*/
+ .videoList{
+	width: 750rpx;
+	height: 304rpx;
+	padding: 32rpx; 
+	border-bottom: 1rpx solid #d6d7dc;
+	box-sizing: border-box;
+}
+.videoList .left-videoList{	
+	float: left;
+	padding-right: 24rpx;
+}
+.videoList .left-videoList image{
+	width: 192rpx;
+	height: 240rpx;	
+}
+.videoList .right-videoList{
+	float: left;
+}
+.videoList .right-videoList .courseName{
+	margin-bottom: 24rpx;
+	line-height: 36rpx;
+	font-size: 36rpx;
+	color: #333;
+	width: 380rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.videoList .right-videoList .doctorName{
+	 /* margin-bottom: 20rpx;  */
+	line-height: 26rpx;
+	font-size: 26rpx;
+	color: #666;
+	width: 470rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.job{
+	overflow: hidden;
+	margin-bottom: 30rpx; 
+	line-height: 26rpx;
+	font-size: 26rpx;
+	color: #666;
+}
+.jobTitle{
+	float: left;
+	width: 384rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.moreDoctor{
+	position: relative;
+	top: 27rpx; 
+	right: 0rpx;
+	width: 80rpx;
+	font-size: 26rpx;
+	line-height: 26rpx;
+	color: #666;
+}
+.courseNumber{
+	margin-bottom:20rpx;
+	line-height: 24rpx;
+	font-size: 24rpx;
+	color:#999999;
+}
+.courseNumber image{
+	width: 20rpx;
+	height: 24rpx;
+	margin-right: 10rpx;
+}
+ .courseNumber text{
+	font-size: 24rpx;
+} 
+
+.purchased{
+	overflow: hidden;
+	float: left;
+	width: 200rpx;
+}
+.purchased image{
+	float: left;
+	width: 24rpx;
+	height: 22rpx;
+	margin-right: 12rpx;
+}
+.courseTip{
+	float: left;
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color: #70D538;
+}
+.price{
+	overflow: hidden;
+	float: right;
+	/* width: 95rpx; */
+}
+.price image{
+	position: relative;
+	top: -17rpx;
+	left: 0rpx;
+	width: 24rpx;
+	height: 22rpx;
+	margin-right: 12rpx;
+}
+.coursePrice{
+	float: right;
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color:#FFA334;
+} 
+/* 视频课程的样式 */
+.lessonsOfNum{
+	float: left;
+	font-size: 24rpx;
+	line-height: 56rpx;
+}
+.lessonsOfNum image{
+	width:20rpx;
+	height: 30rpx;
+	margin-right: 12rpx;
+	vertical-align:middle;
+}
+.floatLeft{
+	float: left;
+}
+.floatRight{
+	float: right;
+}	
+/* 课件标题 */
+.pdftitle{
+	font-size: 32rpx;
+	line-height: 96rpx;
+	color: #333333;
+}
+
+.pdftitle:before{
+	position: relative;
+	top: 4rpx;
+	content:'';
+	display: inline-block;
+	width: 12rpx;
+	height: 32rpx; 
+	margin-right: 20rpx;
+	background:#FFA334;
+}
+
+/* 医生列表 */
+
+/* 分割线 */
+.interval{
+	width: 100%;
+	height: 30rpx;
+	background: #eee;
+}
+/* 课件介绍 */
+.lessonDetail{
+	overflow: hidden;
+	padding: 16rpx 32rpx;
+}
+.lessonDetail .lessonName{
+	line-height: 68rpx;
+	font-size: 36rpx;
+}
+
+/* 底部分享收藏 */
+/* .userTools{
+	position: fixed;
+	bottom: 0rpx;
+	width: 750rpx;
+	height: 128rpx;
+	background: #fff;
+	line-height: 128rpx;
+	padding: 0rpx 32rpx 0rpx 38rpx;
+	border-top: 1px solid #eee;
+}
+.userTools .shareBtn{
+	
+}
+.userTools .shareImg{
+	width: 44rpx;
+	height: 44rpx;
+}
+.userTools .collection{
+	position:absolute;
+	top:42rpx;
+	left:126rpx;
+	width: 44rpx;
+	height: 44rpx;
+	margin-right: 40rpx;	
+}
+.userTools .line{
+	position:absolute;
+	top:32rpx;
+	width:1px;
+	height:74rpx;
+	background:#d6d7dc;
+	left:220rpx;
+}
+.userTools .commentInput{
+	position:absolute;
+	top:26rpx;
+	left:250rpx;
+	width: 434rpx;
+	height: 76rpx;
+	border: 1px solid #D6D6DB;
+} */

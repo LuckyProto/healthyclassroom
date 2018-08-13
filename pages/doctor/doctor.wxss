@@ -1,0 +1,52 @@
+/* pages/doctor/doctor.wxss */
+@import "../../utils/videoList_common.wxss";
+@import "../template/template.wxss";
+.doctor{
+	padding: 26rpx;
+	box-sizing: border-box;
+}
+.doctor .avatar{
+	width: 100%;
+}
+.doctor .avatar image{
+	display: block;
+	width: 160rpx;
+	height: 160rpx;
+	margin: 0 auto;
+	margin-bottom: 24rpx;
+}
+.doctor .docName{
+	margin-bottom: 16rpx;
+	text-align: center;
+}
+.doctor .docName text{
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 32rpx;
+}
+.doctor .tip{
+	margin-bottom: 20rpx;
+	text-align: center;
+}
+.doctor .tip image{
+	width: 108rpx;
+	height:28rpx;
+	margin-right: 16rpx;
+}
+.doctor .docHospital{
+	margin-bottom: 16rpx;
+	text-align: center;
+	font-size: 26rpx;
+	color:#666;
+}
+
+.skill .content{
+	padding: 0 32rpx 32rpx 32rpx;
+	font-size: 28rpx;
+	font-weight: normal;
+	line-height: 48rpx;
+	color: #666;
+}
+.lessonsList{
+	padding: 0 32rpx 32rpx 32rpx;
+}
