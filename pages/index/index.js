@@ -117,7 +117,7 @@ Page({
 				title: '加载中',
 			})
 			wx.request({
-				url: 'https://his-dev.gusmedsci.cn/hservice/comm',
+				url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
 				method: 'POST',
 				header: {
 					sign: sign
@@ -138,6 +138,7 @@ Page({
 				}
 			})
 		}
+        console.log('is_all', this.data.is_all)
 	},
   	onLoad: function () {
 	  	var self = this,
@@ -148,7 +149,7 @@ Page({
 		},
 		sign = wx.getStorageSync('sign');
 		wx.request({
-			url: 'https://his-dev.gusmedsci.cn/hservice/comm',
+			url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
 			method: 'POST',
 			header: {
 				sign: sign
@@ -175,7 +176,7 @@ Page({
 					page_size: 3
 				};
 				wx.request({
-					url: 'https://his-dev.gusmedsci.cn/hservice/comm',
+					url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
 					method: 'POST',
 					header: {
 						sign: sign
@@ -196,7 +197,12 @@ Page({
 						}
 					}
 				})
-			}
+			},
+            fail: function (res){
+                wx.navigateTo({
+                    url: '../ notfound / notfound '
+                })
+            }
 		})
 		
 	  	// API.ajax('', function (res) {
@@ -245,16 +251,16 @@ Page({
     	    })
     	  }
     	} else {
-    	  // 在没有 open-type=getUserInfo 版本的兼容处理
-    	  wx.getUserInfo({
-    	    success: res => {
-    	      app.globalData.userInfo = res.userInfo
-    	      this.setData({
-    	        userInfo: res.userInfo,
-    	        hasUserInfo: true
-    	      })
-    	    }
-    	  })
+    	    // 在没有 open-type=getUserInfo 版本的兼容处理
+    	    wx.getUserInfo({
+    	        success: res => {
+    	            app.globalData.userInfo = res.userInfo
+    	                this.setData({
+    	                userInfo: res.userInfo,
+    	                hasUserInfo: true
+    	            })
+    	        }
+    	    })
     	}
   },
   getUserInfo: function(e) {

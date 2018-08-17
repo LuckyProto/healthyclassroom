@@ -1,14 +1,14 @@
 <!--template.wxml-->
-<!--课程模板-->
+<!--课程模板  -->
 <template name="video">
   	<view  class="videoList" bindtap="navigateToLessons" data-class_group_id="{{class_group_id}}" data-doctor_num="{{doctor_num}}">
-	  	<view class='left-videoList'>
+	  	<view  class='left-videoList'>
 			<image src='{{courseImgUrl}}'/>
 		</view>
 		<view class='right-videoList'>
 			<view class='courseName'>{{title}}</view>
 			<view class='doctorName'>
-				{{doctorName}}-{{doctorHospital}}					
+				{{doctorName}}-{{doctorHospital}}							
 			</view>
 			<view class='job'>
 				<text class='jobTitle'>
@@ -74,43 +74,9 @@
 	</view>
 </template>
 
-<template name="_doctor">
-	<view 
-		data-doctorid='{{doctorid}}'
-		class="_lessonDoc" 
-		bindtap="navigateToDoctor" 
-		bindtouchstart='handleTarchStart' 
-		bindtouchend='handleTarchEnd'>
-		<view class="avatar_lessonDoc">
-			<image class="doc_ava" src="{{doctorImg}}"></image>
-		</view>
-		<view class="_docDetail_lessonDoc">
-				<view class="docName_lessonDoc">	
-					<text>{{doctorName}}</text>
-					<image 
-					wx:if="{{isHostest}}" 
-					src="../../images/cutImg/label_highest.png">
-					</image>
-					<image 
-					wx:if="{{isFamous}}" 
-					src="../../images/cutImg/label_famous_doctor.png">
-					</image>
-					<image 
-					class="isCareful" 
-					wx:if="{{isCareful}}" 
-					src="../../images/cutImg/label_explanation.png">
-					</image>
-				</view>
-		</view>
-		<view class="_background">
-			<text>{{doctorHospital}}</text>
-			<text class='_specialty'>{{dept_name}} {{jobTitle}}</text>
-			<!-- <text class='_rank'>{{jobTitle}}</text> -->
-		</view>
-	</view>
-</template>
-<!-- 套课课程列表 -->
-<template name='lessonList'>
+
+<!-- 套课课程列表 已购买-->
+<template name='purlessonList'>
 	<view data-class_id='{{class_id}}' data-isPurchased='{{isPurchased}}' class="videoList" bindtap="navigateToLesson">
 		<view class='left-videoList'>
 			<image src='{{lessonImg}}'/>
@@ -120,8 +86,8 @@
 				<text class="lessonName">{{lessonName}}</text>
 				<image wx:if="{{isFree}}" class="isFree" src="../../images/cutImg/label_free.png">
 				</image>
-				<image wx:if="{{!isFree && !isPurchased}}" class="noFree" src="../../images/cutImg/lessons_lock.png">
-				</image>
+				<!-- <image wx:if="{{!isFree && !isPurchased}}" class="noFree" src="../../images/cutImg/lessons_lock.png">
+				</image> -->
 			</view>
 			<text class='doctorName-lesson'>{{doctorName}}-{{doctorHospital}}</text>
 			<view class="followers">
@@ -137,20 +103,20 @@
 </template>
 <!-- 套课课程列表 未购买 -->
 <template name='beforePurchesedLessonList'>
-	<view data-class_id='{{class_id}}' data-isPurchased='{{isPurchased}}' class="_videoList" bindtap="navigateToLesson">
-		<view class='_left-videoList'>
+	<view data-class_id='{{class_id}}' data-isPurchased='{{isPurchased}}' class="videoList" bindtap="navigateToLesson">
+		<view class='left-videoList'>
 			<image src='{{lessonImg}}'/>
 		</view>
-		<view class='_right-videoList'>	
+		<view class='right-videoList'>	
 			<view class='courseName'>
-				<text class="_lessonName">{{lessonName}}</text>
+				<text class="lessonName">{{lessonName}}</text>
 				<image wx:if="{{isFree}}" class="isFree" src="../../images/cutImg/label_free.png">
 				</image>
 				<image wx:if="{{!isFree}}" class="noFree" src="../../images/cutImg/lessons_lock.png">
 				</image>
 			</view>
 			<text class='doctorName-lesson'>{{doctorName}}-{{doctorHospital}}</text>
-			<view class="_followers">
+			<view class="followers">
 				<span class='courseTip'>{{lessonDuring}}分钟</span>
 				<span class='coursePrice'>
 					<image class="watched" src="../../images/cutImg/watched.png">
@@ -161,8 +127,8 @@
 		</view>
 	</view>
 </template>
-<!-- 课程或套课底部购买 -->
-<template name="lessonBottom">
+<!-- 课程或套课底部购买 已购买-->
+<template name="purlessonBottom">
 	<view class="userTools">
 		<button style="border: none" class='shareBtn' open-type="share" plain='false'>
 			<image class="shareImg" src='../../images/cutImg/share.png'></image>
@@ -191,10 +157,10 @@
 			<button open-type='getUserInfo' class="buyBtn" bindgetuserinfo='onGotUserInfo'>购买</button>
 		</view> -->
 		<view>
-			<span class="rmb" wx:if="{{isPurchased == false}}">
+			<!-- <span class="rmb" wx:if="{{isPurchased == false}}">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
 				<text>{{coursePrice}}</text>
-			</span>
+			</span> -->
 			<input 
 				wx:if="{{isPurchased == true}}"
 				type='text'
@@ -204,7 +170,7 @@
 				selection-start="1" 
 				selection-end="-1"
 			/>
-			<button wx:if="{{isPurchased == false}}" class="buyBtn" bindtap='fun_buy'>购买</button>
+			<!-- <button wx:if="{{isPurchased == false}}" class="buyBtn" bindtap='fun_buy'>购买</button> -->
 		</view>
 	</view>
 </template>
@@ -268,13 +234,13 @@
 			</image>
 		</button>
 		<view class="line"></view>
-		<view>
+		<!-- <view wx:if="{{isPurchased == false}}">
 			<span class="rmb">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
 				<text>{{coursePrice}}</text>
 			</span>
 			<button open-type='getUserInfo' class="buyBtn" bindgetuserinfo='onGotUserInfo'>购买</button>
-		</view>
+		</view> -->
 		<view  wx-if="{{!is_free}}">
 			<span class="rmb">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
@@ -309,7 +275,7 @@
 		<view>
 			<text class='pdftitle'>购买须知</text>
 		</view>
-		<view class="doctorsSwiper pdlr32 title-courseIntroduce purchased-notes">{{goodsIntroduce}}			</view>
+		<view class="doctorsSwiper pdlr32 title-courseIntroduce">{{goodsIntroduce}}			</view>
 	</view>
 </template>
 <!-- 套课 课程讨论 -->
@@ -348,10 +314,5 @@
 				<text>看了这节课觉得很有用，甲状腺疾病真的不能掉以轻心</text>
 			</view>
 		</view>
-	</view>
-</template>
-<template name="empty">
-	<view class="empty">
-		
 	</view>
 </template>

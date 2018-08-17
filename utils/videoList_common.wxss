@@ -118,10 +118,31 @@
 	line-height: 56rpx;
 }
 .lessonsOfNum image{
-	width:20rpx;
-	height: 30rpx;
+	width:22rpx;
+	height: 24rpx;
 	margin-right: 12rpx;
 	vertical-align:middle;
+}
+.lessonsOfNum text{
+    position: relative;
+    top: 3rpx;
+    color: #999999;
+}
+.lessonsOfEyes{
+	float: left;
+	font-size: 24rpx;
+	line-height: 56rpx;
+}
+.lessonsOfEyes image{
+	width:32rpx;
+	height: 24rpx;
+	margin-right: 12rpx;
+	vertical-align:middle;
+}
+.lessonsOfEyes text{
+    position: relative;
+    top: 3rpx;
+    color: #999999;
 }
 .floatLeft{
 	float: left;

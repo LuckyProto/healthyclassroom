@@ -2,7 +2,7 @@
 <import src ="../template/template.wxml"/>
 <view class="container">
   	<view class="title-index">
-		健康课
+		悦讲健康
   	</view>
 	<!-- 轮播图部分 -->
 	<swiper 
@@ -25,8 +25,9 @@
     	<block wx:for='{{videoList}}'>
 	  		<template 
 			  	is="video" 
-			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.specialty, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price}}"/>
+			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.specialty, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price/100}}"/>
 		</block>
   	</view>
-	<view class="no-more" wx:if="{{!is_all}}">没有更多数据</view>
+	<view class="no-more" wx:if="{{is_all}}">没有更多数据</view>
+    <!-- <template is="empty" /> -->
 </view>

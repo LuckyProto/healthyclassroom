@@ -88,7 +88,7 @@ Component({
 					doctor_id: doctorid
 				};
 			wx.request({
-				url: 'https://his-dev.gusmedsci.cn/hservice/comm',
+				url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
 				method: 'POST',
 				header: {
 					sign: _sign

@@ -7,7 +7,7 @@
 	width: 750rpx;
 	padding-left: 32rpx;
 	padding-bottom: 32rpx;
-	margin-top: 32rpx;
+	margin-top: 42rpx;
 	border-bottom: 1px solid #d6d7dc;
 	box-sizing: border-box;
 }
@@ -23,14 +23,13 @@
 }
 .lessonDoc .docDetail_lessonDoc{
 	position: absolute;
-	top: 10rpx;
 	display: inline-block;
 	width: 590rpx;
-	padding-left: 20rpx;
+	padding-left: 26rpx;
 }
 .background{
 	position: absolute;
-	top: 50rpx; 
+	top: 40rpx; 
 	width:600rpx;
 	height:106rpx;
 	padding-top: 14rpx;

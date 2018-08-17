@@ -30,6 +30,7 @@
 		<text>{{doctor.specialty}}</text>
 	</view>
 </view>
+<view class="interval"></view>
 <view class="relationLessons">
 	<view>
 		<text class="pdftitle">相关课程</text>

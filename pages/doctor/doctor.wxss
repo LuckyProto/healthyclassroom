@@ -16,16 +16,15 @@
 	margin-bottom: 24rpx;
 }
 .doctor .docName{
-	margin-bottom: 16rpx;
 	text-align: center;
 }
 .doctor .docName text{
 	height: 40rpx;
 	line-height: 40rpx;
-	font-size: 32rpx;
+	font-size: 36rpx;
 }
 .doctor .tip{
-	margin-bottom: 20rpx;
+	/* margin-bottom: 20rpx; */
 	text-align: center;
 }
 .doctor .tip image{
@@ -34,7 +33,7 @@
 	margin-right: 16rpx;
 }
 .doctor .docHospital{
-	margin-bottom: 16rpx;
+	/* margin-bottom: 16rpx; */
 	text-align: center;
 	font-size: 26rpx;
 	color:#666;
@@ -42,7 +41,7 @@
 
 .skill .content{
 	padding: 0 32rpx 32rpx 32rpx;
-	font-size: 28rpx;
+	font-size: 30rpx;
 	font-weight: normal;
 	line-height: 48rpx;
 	color: #666;

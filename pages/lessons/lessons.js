@@ -1,4 +1,5 @@
 // pages/lessons/lessons.js
+const md5 = require('../../utils/md5.js');
 Component({
   /**
    * 组件的属性列表
@@ -11,15 +12,15 @@ Component({
    * 组件的初始数据
    */
   	data: {
-		class_group_id   : undefined,
-		doctor_num: undefined,
-		purchaesTab: true,
-		storedTab: false,
-		doctorAmount: undefined,
-		width_swiperWriper: undefined,
-		count: 0,
-		moveLeft: 0,
-		canMoveAmount: 0,
+		class_group_id      : undefined,
+		doctor_num          : undefined,
+		purchaesTab         : true,
+		storedTab           : false,
+		doctorAmount        : undefined,
+		width_swiperWriper  : undefined,
+		count               : 0,
+		moveLeft            : 0,
+		canMoveAmount       : 0,
 		//已购买列表
 		// purchaesdList: [
 		// 	{
@@ -122,6 +123,9 @@ Component({
 			onLoad: function (options) {
 				var self = this;
 				var class_group_id = options.class_group_id;
+                self.setData({
+                    class_group_id: class_group_id
+                })
 				var	param = {
 						class_group_id: class_group_id,
 					},
@@ -131,13 +135,15 @@ Component({
 					sign = wx.getStorageSync('sign'),
 					purchasedList = wx.getStorageSync('purchasedList');
 				var purchased_id_list = [];
-				purchasedList.forEach(function(item, index, array){
-					purchased_id_list.push(item.class_group_id);
-				})
+                if (purchasedList){
+                    purchasedList.forEach(function (item, index, array) {
+                        purchased_id_list.push(item.class_group_id);
+                    })
+                }
 				
 				if (purchased_id_list.indexOf(Number(class_group_id)) != -1) {
 					self.setData({
-						isPurchased: true
+						isPurchased: false
 					})
 				}else{
 					self.setData({
@@ -159,7 +165,7 @@ Component({
 				// 	}
 				// })
 				wx.request({
-					url: 'https://his-dev.gusmedsci.cn/hservice/comm',
+					url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
 					method: 'POST',
 					header: {
 						sign: sign
@@ -176,7 +182,7 @@ Component({
 								class_group_id: class_group_id,
 								doctor_num: options.doctor_num,
 								lesson: res.data.data,
-								price: res.data.data.price
+								price: res.data.data.price / 100
 							})
 							wx.setStorageSync('classList', res.data.data.classList)
 							res.data.data.classList.forEach(function(item, index, array){
@@ -262,7 +268,7 @@ Component({
 			navigateToLesson: function (event) {
 				var class_id = event.currentTarget.dataset.class_id;
 				wx.navigateTo({
-					url: '../lesson/lesson?class_id=' + class_id + '&isPurchased=' + this.data.isPurchased
+                    url: '../lesson/lesson?class_id=' + class_id + '&isPurchased=' + this.data.isPurchased + '&price=' + this.data.price
 				})
 			},
 			handleTarchStart: function(event){
@@ -286,7 +292,7 @@ Component({
 										moveLeft: self.data.moveLeft - step
 									})
 								}
-							}, 50)
+							}, 40)
 						}
 					}else{
 						if (this.data.count < 0) {
@@ -300,7 +306,7 @@ Component({
 										moveLeft: self.data.moveLeft + step
 									})
 								}
-							}, 50)
+							}, 40)
 						}
 					}
 			},
@@ -320,62 +326,110 @@ Component({
 			},
 			fun_buy: function(){
 				console.log('buy')
-				var self = this;
-				var sign = wx.getStorageSync('sign');
-				wx.request({
-					url: 'https://his-dev.gusmedsci.cn/hservice/comm',
-					method: 'POST',
-					header: {
-						sign: sign
-					},
-					data: {
-						methodName: 'hc_order_no'
-					},
-					success: function (res) {
-						if(res.data.code == 0){
-							console.log('pay', res.data.data.no)
-							wx.setStorageSync('sign', res.data.sign)
-							var pay_param = {
-									order_no: res.data.data.no,
-									credential_id: 1,
-									price: self.data.price,
-									pay_source: "wechat",
-									remark: '',
-									groupList: [
-										{class_group_id: self.data.class_group_id}
-									]
-								},
-								_sign = wx.getStorageSync('sign');
-							wx.request({
-								url: 'https://his-dev.gusmedsci.cn/hservice/comm',
-								method: 'POST',
-								header: {
-									sign: _sign
-								},
-								data: {
-									methodName: 'sp_hc_order_save',
-									param: JSON.stringify(pay_param)
-								},
-								success: function (res) {
-									
-								}
-							})
-						}
-					}
-				})
-				wx.requestPayment({
-					'timeStamp': '',
-					'nonceStr': '',
-					'package': '',
-					'signType': 'MD5',
-					'paySign': '',
-					'success': function (res) {
+                var userInfo = wx.getStorageSync('userInfo')
+                if (!userInfo){
+                    wx.showToast({
+                        title: '未防止重复购买，请到‘我的’进行登录后在购买',
+                        icon: 'none',
+                        duration: 10000
+                    })
 
-					},
-					'fail': function (res) {
+                    setTimeout(function () {
+                        wx.hideToast()
+                    }, 5000)
+                }else{
+                    var purchasedList = wx.getStorageSync('purchasedList');
+                    console.log(typeof this.data.class_group_id, typeof purchasedList[0])
+                    if (purchasedList.indexOf(Number(this.data.class_group_id)) != -1){
+                        wx.showToast({
+                            title: '已经购买过此课程，请后退到‘我的-已购买’中进行观看',
+                            icon: 'none',
+                            duration: 10000
+                        })
+                    }else{
+                        var self = this;
+                        var sign = wx.getStorageSync('sign');
+                        wx.request({
+                            url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
+                            method: 'POST',
+                            header: {
+                                sign: sign
+                            },
+                            data: {
+                                methodName: 'hc_order_no'
+                            },
+                            success: function (res) {
+                                if (res.data.code == 0) {
+                                    wx.setStorageSync('sign', res.data.sign)
+                                    var order_no = res.data.data.no;
+                                    var pay_param = {
+                                        order_no: res.data.data.no,
+                                        credential_id: 1,
+                                        price: self.data.price * 100,
+                                        pay_source: "wechat",
+                                        remark: '',
+                                        groupList: [
+                                            { class_group_id: self.data.class_group_id }
+                                        ]
+                                    },
+                                        _sign = wx.getStorageSync('sign');
+                                    wx.request({
+                                        url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
+                                        method: 'POST',
+                                        header: {
+                                            sign: _sign
+                                        },
+                                        data: {
+                                            methodName: 'sp_hc_order_save',
+                                            param: JSON.stringify(pay_param)
+                                        },
+                                        success: function (res) {
+                                            wx.setStorageSync('sign', res.data.sign)
+                                            var orderSign = wx.getStorageSync('sign');
+                                            console.log('orderSign', orderSign)
+                                            var orderParam = {
+                                                body: self.data.lesson.title,
+                                                order_no: order_no,
+                                                price: self.data.price * 100,
+                                                openid: "okpQB0XIpDuxOO4iBjp-Af3B-Cgg"
+                                            };
+                                            wx.request({
+                                                url: 'https://class-dev.gusmedsci.cn/hservice-wx/appletOrder',
+                                                method: 'POST',
+                                                header: {
+                                                    sign: orderSign
+                                                },
+                                                data: JSON.stringify(orderParam),
+                                                success: function (res) {
+                                                    wx.setStorageSync('sign', res.data.sign)
+                                                    console.log(JSON.parse(res.data.data))
+                                                    var payObj = JSON.parse(res.data.data);
+                                                    var paySignStr = 'appId=' + payObj.appId + '&nonceStr=' + payObj.nonceStr + '&package=' + payObj.package + '&signType=MD5&timeStamp=' + payObj.timeStamp + '&key=IZpPC8F7gx95kSdWpnfEi0MV3eReYPx1';
+                                                    var paySign = md5.hex_md5(paySignStr).toUpperCase();
 
-					}
-				})
+                                                    console.log('paySign', paySign, '22D9B4E54AB1950F51E0649E8810ACD6');
+                                                    wx.requestPayment({
+                                                        'timeStamp': payObj.timeStamp,
+                                                        'nonceStr': payObj.nonceStr,
+                                                        'package': payObj.package,
+                                                        'signType': 'MD5',
+                                                        'paySign': paySign,
+                                                        'success': function (res) {
+                                                            console.log('succ', res)
+                                                        },
+                                                        'fail': function (res) {
+                                                            console.log('fail', res)
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                    }
+                }
 			}
   	}
 })

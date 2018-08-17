@@ -1,5 +1,5 @@
 <!--pages/lessons/lessons.wxml-->
-<import src ="../template/template.wxml"/>
+<import src ="../purtemplate/purtemplate.wxml"/>
 <view>
 	<view class="videoContainer_lesson">
 		<image src="{{lesson.attList[0].group_resources_type == 'mpic' ? lesson.attList[0].resources_url : lesson.attList[1].resources_url}}"></image>
@@ -12,9 +12,9 @@
 				<image src="../../images/cutImg/lessons.png"></image>
 				<text class="lessonOfListeners">{{lesson.classList.length}}节课</text>
 			</view>
-			<view  class="lessonsOfPurNum floatRight">
+			<view  class="lessonsOfNum floatRight">
 				<image src="../../images/cutImg/purchased.png"></image>
-				<text class="lessonOfListeners">{{lesson.purchasedAmount ? lesson.purchasedAmount : 0}}人已购买</text>
+				<text class="lessonOfListeners">{{lesson.purchasedAmount ? lesson.purchasedAmount : 0}}</text>
 			</view>
 	</view> 
 	<view class="interval"></view>
@@ -22,8 +22,7 @@
 	<view class="pdfContainer_lesson">
 		 <view class="toDoctorList">
 			<text class="pdftitle">主讲医生 (共{{doctor_num}}人)</text>
-			<text class="more" bindtap="navigateToDoctorList" wx:if="{{lesson.doctors.length > 1}}">查看全部</text>
-            <image class="arrow" src="../../images/cutImg/arrow.png"></image>
+			<text class="more" bindtap="navigateToDoctorList" wx:if="{{lesson.doctors.length > 1}}">查看全部></text>
 		</view> 
 		 <view class="doctorsSwiper">
 			<view class="swiper" style="width:{{width_swiperWriper}}rpx; left:{{moveLeft}}rpx">
@@ -40,15 +39,16 @@
 	 <view class="store_userInfo">
 		<view 
 			bindtap='changePurchaseTab' 
-			
+			class="{{purchaesTab ? 'active' : ''}}"
 		>
-			<text class="{{purchaesTab ? 'active' : 'six'  }}">课程列表</text>
+			<text>课程列表</text>
 			<view class="{{purchaesTab ? 'yellowBar-purchaes' : ''}}"></view>
 		</view>
 		<view 
 			bindtap='changeStoredTab' 
+			class="{{storedTab ? 'active' : ''}}"
 		>
-			<text class="{{storedTab ? 'active' : 'six'  }}" style='color: #666'>课程详情</text>
+			<text>课程详情</text>
 			<view class="{{storedTab ? 'yellowBar-stored' : ''}}"></view>
 		</view>
 	</view> 
@@ -56,7 +56,7 @@
 		<!-- 课程列表 -->
     	<block wx:for='{{lesson.classList}}'>
 			<template 
-				is="beforePurchesedLessonList"
+				is="purlessonList"
 				data="{{class_id: item.class_id, lessonImg: item.attList[0].class_resources_type == 'cover' ? item.attList[0].resources_url : item.attList[1].resources_url, lessonName: item.class_name, doctorName: item.docInfo.doctor_name, doctorHospital: item.docInfo.hospital_name, lessonDuring: item.length_time, ViewdAmount:item.ViewdAmount ? item.ViewdAmount : 0, isFree: item.is_free, isPurchased: isPurchased}}">
 			</template>
 		</block>
@@ -76,16 +76,15 @@
 				is="goodsIntroduce"
 				data="{{goodsIntroduce: lesson.notes}}">
 			</template>
-			<!-- <view class="interval"></view> -->
-			<!-- <template
+			<view class="interval"></view>
+			<template
 				is="courseComment">
-			</template> -->
+			</template>
 		</view>
   	</view> 
-      <view style='width:128rpx; height:128rpx'></view>
 	<!-- 课程或套课底部 -->
 	<template 
-		is="lessonsBottom"
+		is="purlessonBottom"
 		data="{{isPurchased: isPurchased, isStored:isStored, coursePrice:price}}">
 	</template>
 </view>

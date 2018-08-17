@@ -1,7 +1,6 @@
 //app.js
 App({
   	onLaunch: function () {
-        console.log('port',)
     	//展示本地存储能力
     	// var logs = wx.getStorageSync('logs') || []
     	// logs.unshift(Date.now())
@@ -13,6 +12,7 @@ App({
 						var param = {
 							code: res.code
 						};
+                        console.log('code', res.code)
 						// var code = res.code;
 						// wx.request({
             //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxb27a790cd5cbda0b&secret=0931ab71f720c1741f2200ba9016ef48&js_code=' + code + '&grant_type=authorization_code',
@@ -31,33 +31,36 @@ App({
 						// })
 						//发起网络请求
 						wx.request({
-							url: 'https://his-dev.gusmedsci.cn/hservice/wechatLogin',
+							url: 'https://class-dev.gusmedsci.cn/hservice-wx/wechatLogin',
 							method: 'POST',
 							data: JSON.stringify(param),
 							success: function (res) {
 								if(res.data.code == 0){
 									wx.setStorageSync('sign', res.data.sign)
-									var _param = {
-											methodName: "sp_hc_credential_order_group_query"
-										},
-										sign = res.data.sign;
-									wx.request({
-										url: 'https://his-dev.gusmedsci.cn/hservice/comm',
-										method: 'POST',
-										header: {
-											sign: sign
-										},
-										data: {
-											methodName: 'sp_hc_credential_order_group_query',
-											param: JSON.stringify(_param)
-										},
-										success: function (res) {
-											wx.setStorageSync('purchasedList', res.data.data)
-											wx.navigateTo({
-												url: 'index'
-											})
-										}
-									})
+                                    wx.navigateTo({
+                                        url: 'index'
+                                    })
+									// var _param = {
+									// 		methodName: "sp_hc_credential_order_group_query"
+									// 	},
+									// 	sign = res.data.sign;
+									// wx.request({
+									// 	url: 'https://class-dev.gusmedsci.cn/hservice-wx/comm',
+									// 	method: 'POST',
+									// 	header: {
+									// 		sign: sign
+									// 	},
+									// 	data: {
+									// 		methodName: 'sp_hc_credential_order_group_query',
+									// 		param: JSON.stringify(_param)
+									// 	},
+									// 	success: function (res) {
+									// 		wx.setStorageSync('purchasedList', res.data.data)
+									// 		wx.navigateTo({
+									// 			url: 'index'
+									// 		})
+									// 	}
+									// })
 								}
 							}
 						})

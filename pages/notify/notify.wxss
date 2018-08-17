@@ -1,7 +1,11 @@
 /* pages/notify/notify.wxss */
-@import "../../utils/videoList_common.wxss";
+/* @import "../../utils/videoList_common.wxss"; */
+@import "../template/template.wxss";
 .container_mine{
     padding: 0;
+}
+.getUserInfoBtn{
+    font-size: 32rpx;
 }
 .container_mine .userInfo{
 	width: 375px;
@@ -21,6 +25,7 @@
 	font-size: 18px;
 	line-height: 42px;
 	text-align: center;
+    color: #fff;
 }
 
 .container_mine .store_userInfo{

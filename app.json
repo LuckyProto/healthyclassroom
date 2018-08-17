@@ -5,12 +5,14 @@
 		"pages/lesson/lesson",
 		"pages/lessons/lessons",
 		"pages/doctors/doctors",
-		"pages/doctor/doctor"
+		"pages/doctor/doctor",
+        "pages/purlessons/purlessons",
+        "pages/purlesson/purlesson"
   	],
   	"window":{
         "backgroundTextStyle":"light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "健康课",
+        "navigationBarTitleText": "悦讲健康",
         "navigationBarTextStyle":"black",
 		"enablePullDownRefresh": true,
 		"onReachBottomDistance": 50
@@ -28,9 +30,9 @@
 		    },
 		    {
 			   	"pagePath": "pages/notify/notify",
-			   	"text": "我的",
-				"iconPath": "./images/cutImg/mine.png",
-				"selectedIconPath": "./images/cutImg/mine_select.png"
+			   	"text": "已购",
+				"iconPath": "./images/cutImg/pay_unselect.png",
+				"selectedIconPath": "./images/cutImg/pay_select.png"
 		    }
 	  	]
   	},

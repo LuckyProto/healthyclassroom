@@ -1,4 +1,4 @@
-/* pages/lessons/lessons.wxss */
+/* pages/purlesson/purlesson.wxss */
 @import "../../utils/videoList_common.wxss";
 @import "../template/template.wxss";
 .container_lesson{
@@ -41,7 +41,7 @@
 /* 课件pdf开始 */
 .container_lesson .pdfContainer_lesson{
 	width: 100%;
-	height:282rpx;
+	height:296rpx;
 }
 .container_lesson .pdfContainer_lesson .pdfs{
 	width: 1008rpx;
@@ -61,7 +61,7 @@
 }
 .lessonContent .content_lessonContent .contentTitle_lessonContent text{
 	padding-left:32rpx;
-	font-size: 30rpx;
+	font-size: 26rpx;
 	line-height: 26rpx;
 	color: #666666;
 }
@@ -108,13 +108,9 @@
 	color:#FFA334;
 }
 .rmbImg{
-	width: 18rpx;
-	height:20rpx;
+	width: 24rpx;
+	height:24rpx;
 	margin-right: 10rpx;
-}
-.rmb text{
-    font-size: 36rpx;
-    font-weight: bold;
 }
 .buyBtn{
 	width:180rpx;
@@ -125,7 +121,6 @@
 	top:26rpx;
 	border-radius:38rpx;
 	line-height:76rpx;
-    color: #fff;
 }
 
 

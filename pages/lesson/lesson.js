@@ -13,6 +13,7 @@ Component({
   	data: {
 	  	class_id: undefined,
 	  	lesson: null,
+        price : 0,
 		isPurchased: undefined
   	},
 
@@ -25,17 +26,18 @@ Component({
 			var self = this;
 			var class_id = options.class_id;
 			var isPurchased = options.isPurchased;
+            var price = options.price;
 			var classList = wx.getStorageSync('classList');
 			classList.forEach(function(item, index, value){
 				if(item.class_id == class_id){
 					self.setData({
 						class_id: class_id,
 						lesson: item,
+                        price : price,
 						isPurchased: isPurchased
 					})
 				}
 			})
-			console.log('isPurchased', self.data.lesson.is_free, self.data.isPurchased)
 		},
 	  	toDoctors: function(){
 			wx.navigateTo({
@@ -48,5 +50,5 @@ Component({
 				url: '../doctor/doctor?doctorid=' + doctorid + '&class_group_id=' + this.data.class_group_id
 			})
 		},
-  }
+    }
 })
