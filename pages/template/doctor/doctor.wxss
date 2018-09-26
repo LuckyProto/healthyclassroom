@@ -1,0 +1,163 @@
+/* 课程中的医生滑动图 */
+.lessonDoc{
+	position: relative; 
+	display: inline-block;
+	width: 600rpx;
+	padding-left: 32rpx;
+	padding-bottom: 40rpx;
+	/* border-bottom: 1px solid #d6d7dc; */
+}
+._lessonDoc{
+	position: relative; 
+	display: inline-block;
+	width: 686rpx;
+	padding-bottom: 24rpx;
+	border-bottom: 1px solid #eee;
+}
+._lessonDoc ._docDetail_lessonDoc{
+	position: absolute;
+	top: 0rpx;
+	display: inline-block;
+	width: 420rpx;
+	padding-left: 28rpx;
+}
+._lessonDoc .avatar_lessonDoc{
+	display: inline-block;
+}
+.lessonDoc .avatar_lessonDoc{
+	display: inline-block;
+}
+.lessonDoc .avatar_lessonDoc image{
+	width: 136rpx;
+	height: 136rpx;
+	border: 4rpx solid #FFC57E;
+	border-radius: 50%;
+	margin-left:20rpx;
+}
+._lessonDoc .avatar_lessonDoc image{
+	width: 136rpx;
+	height: 136rpx;
+	border: 4rpx solid #FFC57E;
+	border-radius: 50%;
+	margin-left:20rpx;
+}
+.lessonDoc .docDetail_lessonDoc{
+	position: absolute;
+	top: 5rpx;
+	display: inline-block;
+	width: 420rpx;
+	padding-left: 22rpx;
+}
+.lessonDoc .docDetail_lessonDoc .docName_lessonDoc{
+	height: 32rpx;
+	line-height: 32rpx;
+	font-size: 32rpx;
+}
+._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc{
+	height: 32rpx;
+	line-height: 32rpx;
+	font-size: 32rpx;
+}
+.lessonDoc .docDetail_lessonDoc .docName_lessonDoc text{
+	margin-right: 10rpx;
+}
+._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc text{
+	margin-right: 10rpx;
+}
+.lessonDoc .docDetail_lessonDoc .docName_lessonDoc image{
+	width: 108rpx;
+	height: 28rpx;
+	margin-right: 8rpx; 
+    position:relative;
+top:2rpx;
+}
+._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc image{
+	width: 108rpx;
+	height: 28rpx;
+	margin-right: 8rpx; 
+}
+.lessonDoc .docDetail_lessonDoc .docName_lessonDoc image:last-child{
+	margin-right: 0rpx;
+}
+._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc image:last-child{
+	margin-right: 0rpx;
+}
+.lessonDoc .specialty{
+    position:relative;
+    top:-6rpx;
+	display: inline-block;
+	margin-right: 6rpx;
+}
+._lessonDoc .specialty{
+	display: inline-block;
+	margin-right: 6rpx;
+}
+.lessonDoc .rank{
+    position:relative;
+    top:-6rpx;
+	display: inline-block;
+}
+._lessonDoc .rank{
+	display: inline-block;
+}
+.isCareful{
+	margin-right: 0rpx;
+}
+.background{
+	position: absolute;
+	top: 50rpx; 
+	width:600rpx;
+	height:106rpx;
+	padding-top: 14rpx;
+	padding-left: 184rpx;
+    border-radius:5rpx;
+	box-sizing: border-box;
+	background: #FFB85F;
+	font-size: 26rpx;
+	color: #fff;
+	z-index: -999;
+}
+.background text{
+	display: block;
+	line-height: 42rpx;
+	font-size: 26rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.doc_ava{
+    border: none !important;
+}
+.doctorHospital{
+    position: relative;
+    top:-8rpx;
+}
+._background{
+	position: absolute;
+	top: 40rpx; 
+	width:600rpx;
+	height:106rpx;
+	padding-top: 14rpx;
+	padding-left: 184rpx;
+	box-sizing: border-box;
+	font-size: 26rpx;
+	color: #fff;
+	z-index: -999;
+}
+._background text{
+	display: block;
+	line-height: 42rpx;
+	font-size: 28rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    color: #666666;
+}
+.lessonDoc .docDetail_lessonDoc .docHos_lessonDoc{
+	line-height: 66rpx;
+	color: #666666;
+}
+.lessonDoc .docDetail_lessonDoc .docPosition_lessonDoc{
+	line-height: 26rpx;
+	color: #666666;
+}

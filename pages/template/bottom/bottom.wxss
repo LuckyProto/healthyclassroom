@@ -1,0 +1,90 @@
+/* 底部分享 */
+.userTools{
+	position: fixed;
+	bottom: 0rpx;
+	width: 750rpx;
+	height: 128rpx;
+	background: #fff;
+	line-height: 128rpx;
+	padding: 0rpx 32rpx 0rpx 38rpx;
+	border-top: 1px solid #eee;
+}
+.shareBtn{
+	position:absolute;
+	height:128rpx;
+	width:44rpx;
+}
+.shareImg{
+	position: absolute;
+	top: 42rpx;
+	left: 0rpx;
+	width: 44rpx;
+	height: 44rpx;
+}
+.collectionBtn{
+	position:absolute;
+	left:136rpx;
+	height:128rpx;
+	width:44rpx;
+	background: none;
+}
+.collectionImg{
+	position: absolute;
+	top: 42rpx;
+	left: 0rpx;
+	width: 44rpx;
+	height: 44rpx;
+}
+.line{
+	position:absolute;
+	top:32rpx;
+	width:1px;
+	height:74rpx;
+	background:#d6d7dc;
+	left:220rpx;
+}
+.commentInput{
+	position:absolute;
+	top:26rpx;
+	left:250rpx;
+	width: 434rpx;
+	height: 76rpx;
+	border: 1px solid #D6D6DB;
+}
+.rmb{
+	position:absolute;
+	left:250rpx;
+	font-size: 32rpx;
+	color:#FFA334;
+}
+.rmbImg{
+	width: 18rpx;
+	height:20rpx;
+	margin-right: 10rpx;
+}
+.rmb text{
+    font-size: 36rpx;
+    font-weight: bold;
+}
+.buyBtn{
+	width:180rpx;
+	height:76rpx;
+	background:#FFA334;
+	position:absolute;
+	left:532rpx;
+	top:26rpx;
+	border-radius:38rpx;
+	line-height:76rpx;
+    color: #fff;
+}
+.boughtBtn{
+	width:180rpx;
+	height:76rpx;
+	background:#ccc;
+	position:absolute;
+	left:532rpx;
+	top:26rpx;
+	border-radius:38rpx;
+	line-height:76rpx;
+    color:#fff;
+}

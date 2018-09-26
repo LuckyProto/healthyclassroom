@@ -1,0 +1,6 @@
+<!--component/bottom/bottom.wxml-->
+<import src ="../../pages/template/bottom/bottom.wxml"/>
+<template 
+	is="bottom"
+	data="{{isLogin: isLogin, isFromShare: isFromShare, isBuy: isBuy, isCollect: isCollect, coursePrice: coursePrice}}">
+</template>

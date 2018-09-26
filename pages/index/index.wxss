@@ -1,6 +1,5 @@
 /**index.wxss**/
- /* @import "../../utils/videoList_common.wxss";  */
-@import "../template/template.wxss";
+@import "../template/lessons/lessons.wxss"; 
 .userinfo {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,32 @@
+<!--pages/temCourseWare/temCourseWare.wxml-->
+<template name="courseWare">
+    <view class="pdfContainer_lesson">
+		<view>
+			<text class="pdftitle">课件</text>
+		</view>
+		<view class='pdfs_wraper'>
+            <view
+                style="width:{{courseWaresWiperWidth}}rpx; left:{{moveLeft}}rpx" 
+                class="pdfs" 
+                bindtouchstart='tarchStart'
+                bindtouchend='tarchEnd'>
+                <image  
+                    wx:for="{{courseWares}}" 
+                    wx:for-index="idx" 
+                    wx:for-item="resources_url" 
+                    src="{{resources_url}}" 
+                    mode='aspectFit'
+                    data-src='{{resources_url}}'
+                    bindtap='showBigImage'>
+                </image>
+		    </view>
+        </view>
+        <view>
+            <image 
+                wx:if="{{courseWareSrc}}"  
+                src="{{courseWareSrc}}" 
+                class="bigCourseWare"
+                bindtap='closeBigCourseWare'></image>
+        </view>
+	</view>
+</template>

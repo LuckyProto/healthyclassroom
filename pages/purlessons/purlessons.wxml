@@ -1,5 +1,8 @@
 <!--pages/lessons/lessons.wxml-->
 <import src ="../purtemplate/purtemplate.wxml"/>
+<import src ="../template/temCoursesInfo.wxml"/>
+<import src ="../template/doctor/doctor.wxml"/>
+
 <view>
 	<view class="videoContainer_lesson">
 		<image src="{{lesson.attList[0].group_resources_type == 'mpic' ? lesson.attList[0].resources_url : lesson.attList[1].resources_url}}"></image>
@@ -12,10 +15,10 @@
 				<image src="../../images/cutImg/lessons.png"></image>
 				<text class="lessonOfListeners">{{lesson.classList.length}}节课</text>
 			</view>
-			<view  class="lessonsOfNum floatRight">
+			<!-- <view  class="lessonsOfNum floatRight">
 				<image src="../../images/cutImg/purchased.png"></image>
 				<text class="lessonOfListeners">{{lesson.purchasedAmount ? lesson.purchasedAmount : 0}}</text>
-			</view>
+			</view> -->
 	</view> 
 	<view class="interval"></view>
 	<!-- 主讲医生 -->
@@ -26,9 +29,9 @@
 		</view> 
 		 <view class="doctorsSwiper">
 			<view class="swiper" style="width:{{width_swiperWriper}}rpx; left:{{moveLeft}}rpx">
-				<block wx:for="{{lesson.doctors}}">
+				<block wx:for="{{lesson.doctors}}" wx:key="idx">
 					<template 
-				is="doctor" 
+				is="lessonsDoctor" 
 				data="{{doctorid: item.doctor_id, doctorName:item.doctor_name, doctorImg: item.doctor_image, doctorHospital:item.hospital_name, dept_name:item.dept_name, specialty: item.specialty, jobTitle:item.rank, isHostest:item.docLabel[0] ? true: false,isFamous:item.docLabel[1] ? true: false,isCareful:item.item.docLabel[2] ? true: false}}"/>
 				</block> 
 			</view>
@@ -41,7 +44,7 @@
 			bindtap='changePurchaseTab' 
 			class="{{purchaesTab ? 'active' : ''}}"
 		>
-			<text>课程列表</text>
+			<text>课程表</text>
 			<view class="{{purchaesTab ? 'yellowBar-purchaes' : ''}}"></view>
 		</view>
 		<view 
@@ -54,10 +57,10 @@
 	</view> 
 	<view hidden="{{!purchaesTab}}">
 		<!-- 课程列表 -->
-    	<block wx:for='{{lesson.classList}}'>
+    	<block wx:for='{{lesson.classList}}' wx:for-index="index" wx:for-index="idx" wx:for-item="item">
 			<template 
 				is="purlessonList"
-				data="{{class_id: item.class_id, lessonImg: item.attList[0].class_resources_type == 'cover' ? item.attList[0].resources_url : item.attList[1].resources_url, lessonName: item.class_name, doctorName: item.docInfo.doctor_name, doctorHospital: item.docInfo.hospital_name, lessonDuring: item.length_time, ViewdAmount:item.ViewdAmount ? item.ViewdAmount : 0, isFree: item.is_free, isPurchased: isPurchased}}">
+				data="{{class_id: item.class_id, idx: idx + 1, lessonImg: item.attList[0].class_resources_type == 'cover' ? item.attList[0].resources_url : item.attList[1].resources_url, lessonName: item.class_name, doctorName: item.docInfo.doctor_name, doctorHospital: item.docInfo.hospital_name, lessonDuring: item.length_time, ViewdAmount:item.ViewdAmount ? item.ViewdAmount : 0, isFree: item.is_free, isPurchased: isPurchased}}">
 			</template>
 		</block>
 	</view>
@@ -76,12 +79,10 @@
 				is="goodsIntroduce"
 				data="{{goodsIntroduce: lesson.notes}}">
 			</template>
-			<view class="interval"></view>
-			<template
-				is="courseComment">
-			</template>
+			<!-- <view class="interval"></view> -->
 		</view>
   	</view> 
+    <view style='width:128rpx; height:128rpx'></view>
 	<!-- 课程或套课底部 -->
 	<template 
 		is="purlessonBottom"

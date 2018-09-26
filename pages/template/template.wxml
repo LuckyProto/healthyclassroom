@@ -1,5 +1,5 @@
 <!--template.wxml-->
-<!--课程模板-->
+<!--套课模板-->
 <template name="video">
   	<view  class="videoList" bindtap="navigateToLessons" data-class_group_id="{{class_group_id}}" data-doctor_num="{{doctor_num}}">
 	  	<view class='left-videoList'>
@@ -25,8 +25,45 @@
 			</view>
 			<view class='store'>
 				<view class='purchased'>
-					<image src='../../images/cutImg/home_purchased.png'></image>
-					<span class='courseTip'>{{purchasedAmount}}人已购买</span>
+					<!-- <image src='../../images/cutImg/home_purchased.png'></image>
+					<span class='courseTip'>{{purchasedAmount}}人已购买</span> -->
+				</view>
+				<view class='price'>
+					<image src='../../images/cutImg/rmb.png'></image>
+					<span class='coursePrice'>{{price}}</span>
+				</view>
+			</view>
+    	</view>
+  	</view>
+</template>
+<!--课程模板未购买-->
+<template name="purchaseVideo">
+  	<view  class="videoList" bindtap="navigateToPurchaseLessons" data-class_group_id="{{class_group_id}}" data-doctor_num="{{doctor_num}}">
+	  	<view class='left-videoList'>
+			<image src='{{courseImgUrl}}'/>
+		</view>
+		<view class='right-videoList'>
+			<view class='courseName'>{{title}}</view>
+			<view class='doctorName'>
+				{{doctorName}}-{{doctorHospital}}					
+			</view>
+			<view class='job'>
+				<text class='jobTitle'>
+					{{jobTitle}}-
+				</text>
+				<text class='jobRank'>
+					{{rank}}
+				</text>
+				<text class='moreDoctor' wx:if="{{length > 1}}">等{{length}}人</text>
+			</view>
+			<view class='courseNumber'>
+				<image src='../../images/cutImg/lessons.png'></image>
+				<text>{{class_num}}节课</text>
+			</view>
+			<view class='store'>
+				<view class='purchased'>
+					<!-- <image src='../../images/cutImg/home_purchased.png'></image>
+					<span class='courseTip'>{{purchasedAmount}}人已购买</span> -->
 				</view>
 				<view class='price'>
 					<image src='../../images/cutImg/rmb.png'></image>
@@ -37,78 +74,6 @@
   	</view>
 </template>
 
-<!-- 课程中的医生滑动图  -->
-<template name="doctor">
-	<view 
-		data-doctorid='{{doctorid}}'
-		class="lessonDoc" 
-		bindtap="navigateToDoctor" 
-		bindtouchstart='handleTarchStart' 
-		bindtouchend='handleTarchEnd'>
-		<view class="avatar_lessonDoc">
-			<image src="{{doctorImg}}"></image>
-		</view>
-		<view class="docDetail_lessonDoc">
-				<view class="docName_lessonDoc">	
-					<text>{{doctorName}}</text>
-					<image 
-					wx:if="{{isHostest}}" 
-					src="../../images/cutImg/label_highest.png">
-					</image>
-					<image 
-					wx:if="{{isFamous}}" 
-					src="../../images/cutImg/label_famous_doctor.png">
-					</image>
-					<image 
-					class="isCareful" 
-					wx:if="{{isCareful}}" 
-					src="../../images/cutImg/label_explanation.png">
-					</image>
-				</view>
-		</view>
-		<view class="background">
-			<text>{{doctorHospital}}</text>
-			<text class='specialty'>{{dept_name}}</text>
-			<text class='rank'>{{jobTitle}}</text>
-		</view>
-	</view>
-</template>
-
-<template name="_doctor">
-	<view 
-		data-doctorid='{{doctorid}}'
-		class="_lessonDoc" 
-		bindtap="navigateToDoctor" 
-		bindtouchstart='handleTarchStart' 
-		bindtouchend='handleTarchEnd'>
-		<view class="avatar_lessonDoc">
-			<image class="doc_ava" src="{{doctorImg}}"></image>
-		</view>
-		<view class="_docDetail_lessonDoc">
-				<view class="docName_lessonDoc">	
-					<text>{{doctorName}}</text>
-					<image 
-					wx:if="{{isHostest}}" 
-					src="../../images/cutImg/label_highest.png">
-					</image>
-					<image 
-					wx:if="{{isFamous}}" 
-					src="../../images/cutImg/label_famous_doctor.png">
-					</image>
-					<image 
-					class="isCareful" 
-					wx:if="{{isCareful}}" 
-					src="../../images/cutImg/label_explanation.png">
-					</image>
-				</view>
-		</view>
-		<view class="_background">
-			<text>{{doctorHospital}}</text>
-			<text class='_specialty'>{{dept_name}} {{jobTitle}}</text>
-			<!-- <text class='_rank'>{{jobTitle}}</text> -->
-		</view>
-	</view>
-</template>
 <!-- 套课课程列表 -->
 <template name='lessonList'>
 	<view data-class_id='{{class_id}}' data-isPurchased='{{isPurchased}}' class="videoList" bindtap="navigateToLesson">
@@ -127,9 +92,9 @@
 			<view class="followers">
 				<span class='courseTip'>{{lessonDuring}}分钟</span>
 				<span class='coursePrice'>
-					<image class="watched" src="../../images/cutImg/watched.png">
+					<!-- <image class="watched" src="../../images/cutImg/watched.png">
 					</image>
-					<text class="viewedAmount">{{ViewdAmount}}</text>
+					<text class="viewedAmount">{{ViewdAmount}}</text> -->
 				</span>
 			</view>
 		</view>
@@ -137,7 +102,7 @@
 </template>
 <!-- 套课课程列表 未购买 -->
 <template name='beforePurchesedLessonList'>
-	<view data-class_id='{{class_id}}' data-isPurchased='{{isPurchased}}' class="_videoList" bindtap="navigateToLesson">
+	<view data-class_id='{{class_id}}' data-idx='{{idx}}' data-isPurchased='{{isPurchased}}' class="_videoList" bindtap="navigateToLesson">
 		<view class='_left-videoList'>
 			<image src='{{lessonImg}}'/>
 		</view>
@@ -146,16 +111,16 @@
 				<text class="_lessonName">{{lessonName}}</text>
 				<image wx:if="{{isFree}}" class="isFree" src="../../images/cutImg/label_free.png">
 				</image>
-				<image wx:if="{{!isFree}}" class="noFree" src="../../images/cutImg/lessons_lock.png">
+				<image wx:if="{{(!isLogin && !isFree) || (isLogin && !isFree && !isBuy)}}" class="noFree" src="../../images/cutImg/lessons_lock.png">
 				</image>
 			</view>
 			<text class='doctorName-lesson'>{{doctorName}}-{{doctorHospital}}</text>
 			<view class="_followers">
 				<span class='courseTip'>{{lessonDuring}}分钟</span>
 				<span class='coursePrice'>
-					<image class="watched" src="../../images/cutImg/watched.png">
+					<!-- <image class="watched" src="../../images/cutImg/watched.png">
 					</image>
-					<text class="viewedAmount">{{ViewdAmount}}</text>
+					<text class="viewedAmount">{{ViewdAmount}}</text> -->
 				</span>
 			</view>
 		</view>
@@ -238,7 +203,7 @@
 			<button open-type='getUserInfo' class="buyBtn" bindgetuserinfo='onGotUserInfo'>购买</button>
 		</view> -->
 		<view>
-			<span class="rmb" wx-if="{{coursePrice}}">
+			<span class="rmb">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
 				<text>{{coursePrice}}</text>
 			</span>
@@ -268,14 +233,14 @@
 			</image>
 		</button>
 		<view class="line"></view>
-		<view>
+		<!-- <view>
 			<span class="rmb">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
 				<text>{{coursePrice}}</text>
 			</span>
 			<button open-type='getUserInfo' class="buyBtn" bindgetuserinfo='onGotUserInfo'>购买</button>
-		</view>
-		<view  wx-if="{{!is_free}}">
+		</view> -->
+		<view>
 			<span class="rmb">
 				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
 				<text>{{coursePrice}}</text>
@@ -284,72 +249,7 @@
 		</view>
 	</view>
 </template>
-<!-- 套课详情 课程内容-->
-<template name="courseIntroduce">
-	<view class="courseIntroduce">
-		<view>
-			<text class='pdftitle'>课程内容</text>
-		</view>
-		<view class="doctorsSwiper pdlr32 title-courseIntroduce">{{courseIntroduce}}</view>
-	</view>
-</template>
-<!-- 套课 适合人群-->
-<template name="benefitPeople">
-	<view class="benefitPeople">
-		<view>
-			<text class='pdftitle'>适合人群</text>
-		</view>
-		<view class="doctorsSwiper pdlr32 title-courseIntroduce">{{benefitPeople}}			</view>
-	</view>
-</template>
 
-<!-- 套课 购买须知 -->
-<template name="goodsIntroduce">
-	<view class="benefitPeople">
-		<view>
-			<text class='pdftitle'>购买须知</text>
-		</view>
-		<view class="doctorsSwiper pdlr32 title-courseIntroduce purchased-notes">{{goodsIntroduce}}			</view>
-	</view>
-</template>
-<!-- 套课 课程讨论 -->
-<template name="courseComment">
-	<view class="comment">
-		<view>
-			<text class="pdftitle">课程讨论</text>
-		</view>
-		<view class="content">
-			<view class="userInfo">
-				<view class="userAva">
-					<image src='../../images/course/comment1.png'>
-					</image>
-				</view>
-				<view class="userNandT">
-					<text class="userName">乔治</text>
-					<text class="userTime">2018-05-01</text>
-				</view>
-			</view>
-			<view class="detail">
-				<text>看了这节课觉得很有用，甲状腺疾病真的不能掉以轻心</text>
-			</view>
-		</view>
-		<view class="content">
-			<view class="userInfo">
-				<view class="userAva">
-					<image src='../../images/course/comment1.png'>
-					</image>
-				</view>
-				<view class="userNandT">
-					<text class="userName">乔治</text>
-					<text class="userTime">2018-05-01</text>
-				</view>
-			</view>
-			<view class="detail">
-				<text>看了这节课觉得很有用，甲状腺疾病真的不能掉以轻心</text>
-			</view>
-		</view>
-	</view>
-</template>
 <template name="empty">
 	<view class="empty">
 		

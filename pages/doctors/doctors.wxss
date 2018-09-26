@@ -1,6 +1,8 @@
 /* pages/doctor/doctor.wxss */
 @import "../../utils/videoList_common.wxss";
 @import "../template/template.wxss";
+@import "../template/doctor/doctor.wxss";
+
 .lessonDoc{
 	position: relative; 
 	display: inline-block;

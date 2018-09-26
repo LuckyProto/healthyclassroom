@@ -15,7 +15,7 @@
 }
 ._videoList{
 	width: 750rpx;
-	height: 220rpx;
+	height: 188rpx;
 	padding: 32rpx; 
 	border-bottom: 1rpx solid #d6d7dc;
 	box-sizing: border-box;
@@ -26,14 +26,13 @@
 }
 ._videoList ._left-videoList image{
 	width: 216rpx;
-	height: 160rpx;	
+	height: 130rpx;	
     border-radius:5rpx;
 }
-._followers{
+/* ._followers{
 	position: relative;
 	bottom: -30rpx;
-	overflow: hidden;
-}
+} */
 _.videoList ._right-videoList{
 	float: left;
     position: relative;
@@ -42,9 +41,11 @@ _.videoList ._right-videoList{
 .videoList .left-videoList image{
 	width: 192rpx;
 	height: 240rpx;	
+    border-radius:5rpx;
 }
 .videoList .right-videoList{
 	float: left;
+    width:470rpx;
 }
 .videoList .right-videoList .courseName{
 	margin-bottom: 24rpx;
@@ -58,7 +59,6 @@ _.videoList ._right-videoList{
 	white-space: nowrap;
 }
 .videoList .right-videoList .doctorName{
-	 /* margin-bottom: 20rpx;  */
 	line-height: 26rpx;
 	font-size: 26rpx;
 	color: #666;
@@ -91,34 +91,29 @@ _.videoList ._right-videoList{
 	font-size: 26rpx;
 }
 .moreDoctor{
-	/* position: absolute;
-	top: 30rpx; 
-	right: 0rpx;
-	width: 80rpx; */
 	font-size: 26rpx;
 	line-height: 26rpx;
 	color: #999;
 }
 .courseNumber{
-	/* margin-bottom:20rpx; */
 	line-height: 24rpx;
 	font-size: 24rpx;
 }
 .courseNumber image{
+    position:relative;
+    top:46rpx;
 	width: 22rpx;
 	height: 24rpx;
 	margin-right: 10rpx;
 }
  .courseNumber text{
     position: relative;
-    top: -4rpx;
+    top: 44rpx;
 	font-size: 24rpx;
     line-height: 24rpx;
     color:#999999;
 } 
 .store{
-    /* position: relative;
-    top: 14rpx; */
     width: 100%;
     height: 48rpx;
     overflow: hidden;
@@ -130,7 +125,6 @@ _.videoList ._right-videoList{
     height: 48rpx;
 }
 .purchased image{
-	/* float: left; */
     position: relative;
     top: 10rpx;
 	width: 24rpx;
@@ -138,19 +132,15 @@ _.videoList ._right-videoList{
 	margin-right: 12rpx;
 }
 .courseTip{
-	/* float: left; */
     position: relative;
     top: 6rpx;
 	font-size: 24rpx;
-	/* line-height: 24rpx; */
 	color: #666;
     vertical-align: bottom;
 }
 .price{
-	/* overflow: hidden; */
 	float: right;
     vertical-align: bottom;
-	/* width: 95rpx; */
 }
 .price image{
 	position: relative;
@@ -158,11 +148,8 @@ _.videoList ._right-videoList{
 	left: 0rpx;
 	width: 18rpx;
 	height: 20rpx;
-	/* margin-right: 8rpx; */
 }
 .price .coursePrice{
-	/* float: right; 
-	line-height: 32rpx; */
     position: relative;
 	top: 8rpx;
 	color:#FFA334;
@@ -170,167 +157,19 @@ _.videoList ._right-videoList{
     font-weight: bold;
 }
 
-/* 课程中的医生滑动图 */
-.lessonDoc{
-	position: relative; 
-	display: inline-block;
-	width: 600rpx;
-	padding-left: 32rpx;
-	padding-bottom: 40rpx;
-	/* border-bottom: 1px solid #d6d7dc; */
-}
-._lessonDoc{
-	position: relative; 
-	display: inline-block;
-	width: 686rpx;
-	padding-bottom: 24rpx;
-	border-bottom: 1px solid #eee;
-}
-._lessonDoc ._docDetail_lessonDoc{
-	position: absolute;
-	top: 0rpx;
-	display: inline-block;
-	width: 420rpx;
-	padding-left: 28rpx;
-}
-._lessonDoc .avatar_lessonDoc{
-	display: inline-block;
-}
-.lessonDoc .avatar_lessonDoc{
-	display: inline-block;
-}
-.lessonDoc .avatar_lessonDoc image{
-	width: 136rpx;
-	height: 136rpx;
-	border: 4rpx solid #FFC57E;
-	border-radius: 50%;
-	margin-left:20rpx;
-}
-._lessonDoc .avatar_lessonDoc image{
-	width: 136rpx;
-	height: 136rpx;
-	border: 4rpx solid #FFC57E;
-	border-radius: 50%;
-	margin-left:20rpx;
-}
-.lessonDoc .docDetail_lessonDoc{
-	position: absolute;
-	top: 0rpx;
-	display: inline-block;
-	width: 420rpx;
-	padding-left: 22rpx;
-}
-.lessonDoc .docDetail_lessonDoc .docName_lessonDoc{
-	height: 32rpx;
-	line-height: 32rpx;
-	font-size: 32rpx;
-}
-._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc{
-	height: 32rpx;
-	line-height: 32rpx;
-	font-size: 32rpx;
-}
-.lessonDoc .docDetail_lessonDoc .docName_lessonDoc text{
-	margin-right: 10rpx;
-}
-._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc text{
-	margin-right: 10rpx;
-}
-.lessonDoc .docDetail_lessonDoc .docName_lessonDoc image{
-	width: 108rpx;
-	height: 28rpx;
-	margin-right: 8rpx; 
-}
-._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc image{
-	width: 108rpx;
-	height: 28rpx;
-	margin-right: 8rpx; 
-}
-.lessonDoc .docDetail_lessonDoc .docName_lessonDoc image:last-child{
-	margin-right: 0rpx;
-}
-._lessonDoc ._docDetail_lessonDoc .docName_lessonDoc image:last-child{
-	margin-right: 0rpx;
-}
-.lessonDoc .specialty{
-	display: inline-block;
-	margin-right: 6rpx;
-}
-._lessonDoc .specialty{
-	display: inline-block;
-	margin-right: 6rpx;
-}
-.lessonDoc .rank{
-	display: inline-block;
-}
-._lessonDoc .rank{
-	display: inline-block;
-}
-.isCareful{
-	margin-right: 0rpx;
-}
-.background{
-	position: absolute;
-	top: 50rpx; 
-	width:600rpx;
-	height:106rpx;
-	padding-top: 14rpx;
-	padding-left: 184rpx;
-    border-radius:5rpx;
-	box-sizing: border-box;
-	background: #FFB85F;
-	font-size: 26rpx;
-	color: #fff;
-	z-index: -999;
-}
-.background text{
-	display: block;
-	line-height: 42rpx;
-	font-size: 26rpx;
-	overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-}
-.doc_ava{
-    border: none !important;
-}
-._background{
-	position: absolute;
-	top: 40rpx; 
-	width:600rpx;
-	height:106rpx;
-	padding-top: 14rpx;
-	padding-left: 184rpx;
-	box-sizing: border-box;
-	font-size: 26rpx;
-	color: #fff;
-	z-index: -999;
-}
-._background text{
-	display: block;
-	line-height: 42rpx;
-	font-size: 28rpx;
-	overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-    color: #666666;
-}
-.lessonDoc .docDetail_lessonDoc .docHos_lessonDoc{
-	line-height: 66rpx;
-	color: #666666;
-}
-.lessonDoc .docDetail_lessonDoc .docPosition_lessonDoc{
-	line-height: 26rpx;
-	color: #666666;
-}
-
 /* 套课课程列表 */
+
 ._lessonName{
     position: relative;
     top: -8rpx;
 	line-height: 32rpx;
 	font-size: 32rpx;
 	color: #333;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:399rpx;
+    display:inline-block;
 }
 .lessonName{
 	line-height: 32rpx;
@@ -339,6 +178,8 @@ _.videoList ._right-videoList{
 	color: #333;
 }
 .doctorName-lesson{
+    position:relative;
+    top:-12rpx;
 	line-height: 26rpx;
 	font-size: 26rpx;
 	color: #666;
@@ -350,6 +191,8 @@ _.videoList ._right-videoList{
     top:-16rpx;
 }
 .isFree{
+    position:relative;
+    top:-50rpx;
 	float: right;
 	width: 52rpx;
 	height: 30rpx;

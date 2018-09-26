@@ -46,14 +46,14 @@
 }
 .jobTitle{
 	float: left;
-	width: 384rpx;
+	/* width: 384rpx; */
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
 }
 .moreDoctor{
 	position: relative;
-	top: 27rpx; 
+	/* top: 27rpx;  */
 	right: 0rpx;
 	width: 80rpx;
 	font-size: 26rpx;
@@ -92,25 +92,7 @@
 	line-height: 24rpx;
 	color: #70D538;
 }
-.price{
-	overflow: hidden;
-	float: right;
-	/* width: 95rpx; */
-}
-.price image{
-	position: relative;
-	top: -17rpx;
-	left: 0rpx;
-	width: 24rpx;
-	height: 22rpx;
-	margin-right: 12rpx;
-}
-.coursePrice{
-	float: right;
-	font-size: 24rpx;
-	line-height: 24rpx;
-	color:#FFA334;
-} 
+
 /* 视频课程的样式 */
 .lessonsOfNum{
 	float: left;
@@ -146,6 +128,8 @@
 }
 .floatLeft{
 	float: left;
+    position:relative;
+    top:-4rpx;
 }
 .floatRight{
 	float: right;
@@ -179,7 +163,7 @@
 /* 课件介绍 */
 .lessonDetail{
 	overflow: hidden;
-	padding: 16rpx 32rpx;
+	padding: 0rpx 32rpx;
 }
 .lessonDetail .lessonName{
 	line-height: 68rpx;

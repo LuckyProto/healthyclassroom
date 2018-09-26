@@ -1,0 +1,53 @@
+<!--pages/temCourseWare/temCourseWare.wxml-->
+<view class="pdfContainer_lesson">
+    <view  class="pdftitle">
+        <text class='courseware-title'>课件</text>
+        <view class="lock-wraper" wx:if="{{!isLogin || !isBuy}}">
+            <image
+                class="courseware-titel-lock" 
+                src='../../images/cutImg/lessons_lock.png'>
+            </image>
+        </view>
+        <view class='courseware-content' bindtap='changeIsShowCourseware'  wx:if="{{isLogin}}">
+            
+            <text class="courseware-content-btn" wx:if="{{isBuy && !isShowCourseware}}">展开</text>
+            <text class="courseware-content-btn" wx:if="{{isBuy && isShowCourseware}}">收起</text>
+            <image 
+                wx:if="{{isBuy}}"
+                class="courseware-titel-arrow" 
+                src='../../images/cutImg/icon_down.png'
+                style="transform:rotate({{rotate}}deg)">
+            </image>
+        </view>
+    </view>
+    <!-- <view class='pdfs_wraper'>
+        <view
+            style="left:{{moveLeft}}rpx" 
+            class="pdfs" 
+            bindtouchstart='tarchStart'
+            bindtouchend='tarchEnd'>
+            <image  
+                wx:for="{{courseWares}}" 
+                wx:key="idx" 
+                wx:for-item="resources_url" 
+                src="{{resources_url}}" 
+                mode='aspectFit'
+                data-src='{{resources_url}}'
+                class="{{isActive ? 'active': ''}}"
+                style='width:{{scaleWidth}}rpx; height:{{scaleHeight}}rpx'
+                bindtouchstart='touchstart'
+                bindtouchmove='touchmove'>
+            </image>
+        </view>
+    </view> -->
+    <scroll-view scroll-x="true" scroll-y="true" wx:if="{{isShowCourseware}}" class='courseware-img'>
+        <image 
+            wx:for="{{courseWares}}" 
+            wx:key="idx" 
+            wx:for-item="resources_url" 
+            src="{{resources_url}}"  
+            class="bigCourseWare"
+            style='width:{{scaleWidth}}rpx; height:{{scaleHeight}}rpx'
+            bindtap='closeBigCourseWare'></image>
+    </scroll-view>
+</view>

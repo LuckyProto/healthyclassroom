@@ -1,0 +1,4 @@
+<!--component/home/home.wxml-->
+<view>
+    <button bindtap='toHome'>返回首页</button>
+</view>

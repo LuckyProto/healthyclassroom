@@ -1,5 +1,8 @@
 {
   "component": true,
-  "usingComponents": {},
+  "usingComponents": {
+      "courseware"          : "../../component/courseware/courseware",
+      "component-bottom"    : "../../component/bottom/bottom"
+  },
   "navigationBarTitleText": "课程"
 }

@@ -1,6 +1,8 @@
 /* pages/doctor/doctor.wxss */
 @import "../../utils/videoList_common.wxss";
-@import "../template/template.wxss";
+/* @import "../template/template.wxss"; */
+@import "../template/lessons/lessons.wxss";
+
 .doctor{
 	padding: 26rpx;
 	box-sizing: border-box;
@@ -14,6 +16,7 @@
 	height: 160rpx;
 	margin: 0 auto;
 	margin-bottom: 24rpx;
+    border-radius:50%;
 }
 .doctor .docName{
 	text-align: center;

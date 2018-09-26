@@ -1,17 +1,17 @@
 /* pages/lessons/lessons.wxss */
 @import "../../utils/videoList_common.wxss";
 @import "../template/template.wxss";
+@import "../template/doctor/doctor.wxss";
+@import "../template/bottom/bottom.wxss";
+
 .videoContainer_lesson image{
 	width: 750rpx;
 	height: 320rpx;
 }
 .toDoctorList{
 	overflow: hidden;
-    margin-bottom: 10rpx;
 }
-/* .pdftitle{
-	float: left;
-} */
+
 /* 上部分 */
 .lessonDetail .lessonName{
     font-weight: bold;
@@ -38,13 +38,21 @@
 }
 .lessonsOfNum .lessonOfListeners{
     position: relative;
-    font-size:28rpx;
+    top:-1rpx;
+    font-size:26rpx;
     color:#999999;
 }
 .more{
 	float: right;
 }
 .doctorsSwiper{
+	width: 750rpx;
+	overflow: hidden;
+	box-sizing:border-box;
+	border-bottom: 1px solid #eee;
+    margin-top:20rpx;
+}
+.courseInfo{
 	width: 750rpx;
 	overflow: hidden;
 	box-sizing:border-box;
@@ -60,7 +68,7 @@
 	display: inline;
 	line-height: 96rpx;
 	padding-right: 60rpx;
-	font-size: 32rpx;
+	font-size: 31rpx;
 	color: #FFA334;
 }
 .store_userInfo{
@@ -98,36 +106,10 @@
 .active{
 	color: #FFA334;
 }
-.rmb{
-	position:absolute;
-	left:250rpx;
-	font-size: 32rpx;
-	color:#FFA334;
-}
-.rmb text{
-    font-size:36rpx;
-    font-weight:bold;
-}
-.rmbImg{
-	width: 18rpx;
-	height:20rpx;
-	margin-right: 10rpx;
-}
-.buyBtn{
-	width:180rpx;
-	height:76rpx;
-	background:#FFA334;
-	position:absolute;
-	left:532rpx;
-	top:26rpx;
-	border-radius:38rpx;
-	line-height:76rpx;
-    color: #fff;
-}
 .arrow{
     position: relative;
     right: -428rpx;
-    top: 2rpx;
-    width: 16rpx;
-    height: 28rpx;
+    top: 3rpx;
+    width: 14rpx;
+    height: 24rpx;
 }

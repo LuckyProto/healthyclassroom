@@ -1,6 +1,8 @@
 /* pages/lessons/lessons.wxss */
 @import "../../utils/videoList_common.wxss";
 @import "../template/template.wxss";
+@import "../template/doctor/doctor.wxss";
+@import "../purtemplate/purtem.wxss";
 .videoContainer_lesson image{
 	width: 750rpx;
 	height: 320rpx;
@@ -8,9 +10,6 @@
 .toDoctorList{
 	overflow: hidden;
 }
-/* .pdftitle{
-	float: left;
-} */
 .more{
 	float: right;
 }
@@ -72,14 +71,4 @@
 	width: 24rpx;
 	height:24rpx;
 	margin-right: 10rpx;
-}
-.buyBtn{
-	width:180rpx;
-	height:76rpx;
-	background:#FFA334;
-	position:absolute;
-	left:532rpx;
-	top:26rpx;
-	border-radius:38rpx;
-	line-height:76rpx;
 }

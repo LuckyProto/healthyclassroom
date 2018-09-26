@@ -1,5 +1,7 @@
 {
   	"component": true,
-  	"usingComponents": {},
-  	"navigationBarTitleText": "套课"
+  	"usingComponents": {
+         "component-bottom" : "../../component/bottom/bottom"
+    },
+  	"navigationBarTitleText": "悦讲健康"
 }

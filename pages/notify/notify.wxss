@@ -1,11 +1,23 @@
 /* pages/notify/notify.wxss */
 /* @import "../../utils/videoList_common.wxss"; */
 @import "../template/template.wxss";
+@import "../template/empty/empty.wxss";
+@import "../template/lessons/lessons.wxss";
+
 .container_mine{
     padding: 0;
 }
+.getUserInfoBtnWraper{
+    padding: 114rpx;
+    background-color: #FFA334;
+}
 .getUserInfoBtn{
-    font-size: 32rpx;
+    font-size:32rpx;
+width:320rpx;
+height:88rpx;
+border:1rpx solid #fff;
+background-color: #FFA334;
+color: #fff;
 }
 .container_mine .userInfo{
 	width: 375px;

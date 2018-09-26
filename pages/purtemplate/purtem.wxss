@@ -1,0 +1,12 @@
+.boughtBtn{
+    display: block;
+	width:180rpx;
+	height:76rpx;
+	background:#ccc;
+	position:absolute;
+	left:532rpx;
+	top:26rpx;
+	border-radius:38rpx;
+	line-height:76rpx;
+    color:#fff;
+}

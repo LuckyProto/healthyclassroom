@@ -1,44 +1,48 @@
 {
-  	"pages":[
-        "pages/index/index", 
+    "pages": [
+        "pages/index/index",
         "pages/notify/notify",
-		"pages/lesson/lesson",
-		"pages/lessons/lessons",
-		"pages/doctors/doctors",
-		"pages/doctor/doctor",
+        "pages/lesson/lesson",
+        "pages/lessons/lessons",
+        "pages/doctors/doctors",
+        "pages/doctor/doctor",
         "pages/purlessons/purlessons",
-        "pages/purlesson/purlesson"
-  	],
-  	"window":{
-        "backgroundTextStyle":"light",
+        "pages/purlesson/purlesson",
+        "component/bottom/bottom",
+        "component/courseware/courseware",
+        "component/doctor/doctor",
+        "component/home/home"
+        ],
+    "window": {
+        "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "悦讲健康",
-        "navigationBarTextStyle":"black",
-		"enablePullDownRefresh": true,
-		"onReachBottomDistance": 50
-  	},
-  	"tabBar": {
-	  	"color": "#7F8389",
-		"selectedColor": "#FFA334",
-		"backgroundColor": "#F7F7FA",
-	  	"list": [
-		    {
-		  		"pagePath": "pages/index/index",
-			  	"text": "首页",
-				"iconPath": "./images/cutImg/home.png",
-				"selectedIconPath": "./images/cutImg/home_select.png"
-		    },
-		    {
-			   	"pagePath": "pages/notify/notify",
-			   	"text": "已购",
-				"iconPath": "./images/cutImg/pay_unselect.png",
-				"selectedIconPath": "./images/cutImg/pay_select.png"
-		    }
-	  	]
-  	},
-  	"networkTimeout": {
-		"request": 10000,
-		"downloadFile": 10000
-	},
-	"debug": true
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "onReachBottomDistance": 50
+    },
+    "tabBar": {
+        "color": "#7F8389",
+        "selectedColor": "#FFA334",
+        "backgroundColor": "#F7F7FA",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "./images/cutImg/home.png",
+                "selectedIconPath": "./images/cutImg/home_select.png"
+            },
+            {
+                "pagePath": "pages/notify/notify",
+                "text": "已购",
+                "iconPath": "./images/cutImg/pay_unselect.png",
+                "selectedIconPath": "./images/cutImg/pay_select.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 5000,
+        "downloadFile": 6000
+    },
+    "debug": true
 }

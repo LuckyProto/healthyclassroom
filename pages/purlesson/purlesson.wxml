@@ -1,6 +1,10 @@
 <!--pages/purlesson/purlesson.wxml-->
-<!--pages/lessons/lessons.wxml-->
 <import src ="../purtemplate/purtemplate.wxml"/>
+<import src ="../template/template.wxml"/>
+<import src ="../template/doctor/doctor.wxml"/>
+<import src ="../template/temCoursesInfo.wxml"/>
+
+
 <view class="container_lesson">
 	<view class="videoContainer_lesson">
 		<video
@@ -16,25 +20,24 @@
 			</view>
 			<view  class="lessonsOfNum floatLeft">
 				<image src="../../images/cutImg/lessons.png"></image>
-				<text class="lessonOfListeners">1/3</text>
+				<text class="lessonOfListeners">{{idx}}/{{lessonCount}}</text>
 			</view>
 			<view  class="lessonsOfNum floatRight">
-				<image src="../../images/cutImg/watched.png"></image>
-				<text class="lessonOfListeners">210</text>
+				<!-- <image src="../../images/cutImg/watched.png"></image>
+				<text class="lessonOfListeners">210</text> -->
 			</view>
 		</view>
 	</view>
 	<view class="interval"></view>
-	<view class="pdfContainer_lesson">
-		<view>
-			<text class="pdftitle">课件</text>
-		</view>
-		<view class="pdfs">
-			<image src="../../images/course/lesson1.png"></image>
-			<image src="../../images/course/lesson1.png"></image>
-			<image src="../../images/course/lesson1.png"></image>
-		</view>
-	</view>
+
+    <!-- 课件 -->
+    <courseware 
+        courseWares="{{courseWares}}"
+        canMoveCount="{{canMoveCount}}"
+        courseWaresWiperWidth="{{courseWaresWiperWidth}}"
+        courseWareSrc="{{courseWareSrc}}">
+    </courseware>
+    
 	<view class="interval"></view>
 	<view class="pdfContainer_lesson">
 		<view>
@@ -42,72 +45,20 @@
 		</view>
 		<view class="lessonDoc scopeborder">
 		<template 
-				is="doctor" 
-				data="{{doctorImg: lesson.docInfo.doctor_image, doctorName:lesson.docInfo.doctor_name,isHostest:lesson.docInfo.docLabel[0] ? true: false,isFamous:lesson.docInfo.docLabel[1] ? true: false,isCareful:lesson.docInfo.isCareful, doctorHospital:lesson.docInfo.hospital_name,dept_name:lesson.docInfo.dept_name, jobTitle:lesson.docInfo.rank, doctorid: lesson.docInfo.doctor_id}}"/>
-			<!-- <view class="docDetail_lessonDoc">
-				<view class="docName_lessonDoc">	
-					<text>张玲</text>
-					<image src="../../images/cutImg/label_highest.png"></image>
-					<image src="../../images/cutImg/label_famous_doctor.png"></image>
-				</view>
-				<view  class="docHos_lessonDoc">
-					<text>北京协和医院</text>
-				</view>
-				<view class="docPosition_lessonDoc">
-					<text>内分泌科 主任医师</text>
-				</view>
-			</view> -->
+				is="lessonDoctor" 
+				data="{{doctorImg: doctor.doctor_image, doctorName:doctor.doctor_name,isHostest:doctor.docLabel[0] ? true: false,isFamous:doctor.docLabel[1] ? true: false,isCareful:doctor.isCareful, doctorHospital:doctor.hospital_name,dept_name:doctor.dept_name, jobTitle:doctor.rank, doctorid: doctor.doctor_id}}"/>
 		</view>
 	</view>
 	<view class="lessonContent">
-		<view>
-			<text class="pdftitle">课程内容</text>
-		</view>
-		<view class="content_lessonContent">
-			<view class="contentTitle_lessonContent">
-				<text>此课程主要讲解:</text>
-			</view>
-			<view class="contentTitle_lessonContent">
-				<text>{{lesson.docInfo.specialty}}</text>
-			</view>
-		</view>
+        <template 
+			is="courseIntroduce"
+			data="{{courseIntroduce: lesson.class_content}}">
+		</template>
 	</view>
-	<!-- <view class="interval"></view> -->
-	<!-- <view class="comment">
-		<view>
-			<text class="pdftitle">课程讨论</text>
-		</view>
-		<view class="content">
-			<view class="userInfo">
-				<view class="userAva">
-					<image src='../../images/course/comment1.png'>
-					</image>
-				</view>
-				<view class="userNandT">
-					<text class="userName">乔治</text>
-					<text class="userTime">2018-05-01</text>
-				</view>
-			</view>
-			<view class="detail">
-				<text>看了这节课觉得很有用，甲状腺疾病真的不能掉以轻心</text>
-			</view>
-		</view>
-	</view> -->
+    <view style='width:128rpx; height:128rpx'></view>
 	<template 
 		is="purlessonBottom"
-		data="{{isPurchased: isPurchased, isStored:isStored ? true : false, coursePrice:price, is_free: lesson.is_free}}">
+		data="{{isPurchased: isPurchased, isStored:isStored ? true : false, coursePrice:price}}">
 	</template>
-	<!-- <view class="userTools">
-		<image class="share" src='../../images/cutImg/share.png'></image>
-		<image class="collection" src='../../images/cutImg/collection.png'></image>
-		<view class="line"></view>
-		<input 
-			type='text'
-			class="commentInput" 
-			placeholder="写评论..." 
-			focus 
-			selection-start="1" 
-			selection-end="-1"/>
-	</view> -->
 </view>
 

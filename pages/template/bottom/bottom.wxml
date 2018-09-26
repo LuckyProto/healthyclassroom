@@ -1,0 +1,71 @@
+<template name="bottom">
+	<view class="userTools">
+        <!-- 分享按钮 -->
+		<button style="border: none" class='shareBtn' open-type="share" plain='false'>
+			<image class="shareImg" src='../../images/cutImg/share.png'></image>
+		</button>
+        <!-- 未登录 按钮是登录功能-->
+        <button 
+            wx:if="{{!isLogin}}" 
+            style="border: none" 
+            class='collectionBtn' 
+            plain='false' 
+            open-type="getUserInfo"
+            bindgetuserinfo="userInfoHandler">
+			<image
+				class="collectionImg" 
+				src='../../images/cutImg/collection.png'>
+			</image>
+		</button>
+        <!-- 已登录 按钮是收藏与取消功能 -->
+		<button 
+            wx:if="{{isLogin}}" 
+            bindtap='collectionFun' 
+            style="border: none" 
+            class='collectionBtn' 
+            plain='false'>
+			<image
+				wx:if="{{!isLogin || !isCollect}}" 
+				class="collectionImg" 
+				src='../../images/cutImg/collection.png'>
+			</image>
+			
+			<image
+				wx:if="{{isLogin && isCollect}}" 
+				class="collectionImg" 
+				src='../../images/cutImg/collection_select.png'>
+			</image>
+		</button>
+		<view class="line"></view>
+
+        <!-- 价格与购买 -->
+		<view>
+            <!-- 价格 -->
+			<span class="rmb" wx:if="{{!isLogin || !isBuy}}">
+				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
+				<text>{{coursePrice}}</text>
+			</span>
+            <!-- 未登录 显示登录按钮 -->
+			<button 
+                open-type="getUserInfo"
+                bindgetuserinfo="userInfoHandler"
+                wx:if="{{!isLogin}}" 
+                class="buyBtn">
+                购买
+            </button>
+            <!-- 登录未购买 显示购买按钮 -->
+			<button 
+                wx:if="{{isLogin && !isBuy}}" 
+                class="buyBtn" 
+                bindtap='fun_buy'>
+                购买
+            </button>
+            <!-- 登录已购买 显示已购买按钮-->
+            <button 
+                wx:if="{{isLogin && isBuy}}" 
+                class="boughtBtn">
+                已购买
+            </button>
+		</view>
+	</view>
+</template>

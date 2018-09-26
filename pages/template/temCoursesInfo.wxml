@@ -1,0 +1,50 @@
+<!-- 套课详情 课程内容-->
+<!-- 标题 -->
+<template name="courseInfoTitle">
+    <view>
+		<text class='pdftitle'>{{title}}</text>
+	</view>
+</template>
+<!-- 内容 -->
+<template name="courseInfoContent">
+    <view>
+		<view class="doctorsSwiper pdlr32 title-courseIntroduce">
+            <text>{{content}}</text>
+        </view>
+	</view>
+</template>
+
+<!-- 课程内容 -->
+<template name="courseIntroduce">
+	<view class="courseIntroduce">
+		<view>
+			<text class='pdftitle'>课程内容</text>
+		</view>
+		<view class="courseInfo pdlr32 title-courseIntroduce">
+            <text>{{courseIntroduce}}</text>
+        </view>
+	</view>
+</template>
+<!-- 套课 适合人群-->
+<template name="benefitPeople">
+	<view class="benefitPeople">
+		<view>
+			<text class='pdftitle'>适合人群</text>
+		</view>
+		<view class="courseInfo pdlr32 title-courseIntroduce">
+            <text>{{benefitPeople}}</text>
+        </view>
+	</view>
+</template>
+
+<!-- 套课 购买须知 -->
+<template name="goodsIntroduce">
+	<view class="benefitPeople">
+		<view>
+			<text class='pdftitle'>购买须知</text>
+		</view>
+		<view class="courseInfo pdlr32 title-courseIntroduce purchased-notes">
+            <text>{{goodsIntroduce}}</text>
+        </view>
+	</view>
+</template>

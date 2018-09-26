@@ -1,0 +1,7 @@
+<!--component/doctor/doctor.wxml-->
+<view class="pdfContainer_lesson">
+    <view>
+		<text class="pdftitle">主讲医生</text>
+	</view>
+	<view class="lessonDoc scopeborder"></view>
+</view>

@@ -1,0 +1,5 @@
+<template name="empty">
+    <view class='empty'>
+        <image class="emptyImg" src='../../../images/cutImg/none_data.png'></image>
+    </view>
+</template>

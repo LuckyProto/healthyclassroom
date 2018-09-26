@@ -1,0 +1,31 @@
+/* 课件 */
+.container_lesson .pdfContainer_lesson{
+	width: 100%;
+	/* height:282rpx; */
+}
+.container_lesson .pdfContainer_lesson .pdfs_wraper{
+    width: 750rpx;
+    overflow: hidden;
+}
+.container_lesson .pdfContainer_lesson .pdfs{
+    position: relative;
+	width: 1008rpx;
+	height: 160rpx;
+	padding-left: 32rpx;
+}
+.container_lesson .pdfContainer_lesson .pdfs image{
+	width: 220rpx;
+	height: 160rpx;
+	padding-right: 32rpx;
+}
+.bigCourseWareWraper{
+    background: #fff;
+}
+.bigCourseWare{
+    position: relative;
+    top: 10rpx;
+    /* left: 0; */
+    width: 750rpx;
+    /* height: 1334rpx; */
+    /* z-index: 999; */
+}

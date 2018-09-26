@@ -1,5 +1,6 @@
 <!--pages/doctor/doctor.wxml-->
-<import src ="../template/template.wxml"/>
+<import src ="../template/lessons/lessons.wxml"/>
+
 <view class="doctor">
 	<view class="avatar">
 		<image src="{{doctor.doctor_image}}"></image>
@@ -31,37 +32,17 @@
 	</view>
 </view>
 <view class="interval"></view>
+
+<!-- 医生视频课程部分 -->
 <view class="relationLessons">
 	<view>
 		<text class="pdftitle">相关课程</text>
 	</view>
-	<!-- 医生视频课程部分 -->
   	<view>
-    	<block wx:for='{{videoList}}'>
+    	<block wx:for='{{videoList}}' wx:key="idx">
 	  		<template 
 			  	is="video" 
-			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.specialty, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price}}"/>
+			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.dept_name, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price / 100}}"/>
 		</block>
   	</view>
-	<!-- <view class="lessonsList">
-    	<block wx:for='{{videoList}}'>
-			<view class="videoList" bindtap="navigateToLesson">
-				<view class='left-videoList'>
-					<image src='{{item.courseImgUrl}}'/>
-				</view>
-				<view class='right-videoList'>
-					<view class='courseName'>{{item.courseName}}</view>
-					<block wx:for='{{item.doctor}}' wx:for-item="_item">
-						<view class='doctorName'>{{_item.doctorName}}-{{_item.doctorHospital}}</view>
-						<view class='jobTitle'>{{_item.jobTitle}}</view>
-					</block>
-					<view class='courseNumber'>
-						<image src='../../images/cutImg/lessons.png'></image>
-						<text>{{item.courseNumber}}</text>
-					</view>
-					<view><span class='courseTip'>{{item.courseTip}}</span><span class='coursePrice'>${{item.coursePrice}}</span></view>
-				</view>
-			</view>
-		</block>
-  	</view> -->
 </view>

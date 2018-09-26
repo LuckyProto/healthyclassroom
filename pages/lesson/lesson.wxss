@@ -1,6 +1,10 @@
 /* pages/lessons/lessons.wxss */
 @import "../../utils/videoList_common.wxss";
 @import "../template/template.wxss";
+@import "../template/doctor/doctor.wxss";
+@import "../template/courseWare.wxss";
+@import "../template/bottom/bottom.wxss";
+
 .container_lesson{
 	width: 750rpx;
 	height: 422rpx;
@@ -9,11 +13,9 @@
 	position: relative;
 }
 .container_lesson .videoContainer_lesson .video-cover{
-	position: absolute;
+	position: relative;
 	left: 0;
-	top: 0;
 	width: 750rpx;
-	height: 422rpx;
 	z-index: 999;
 }
 .container_lesson .videoContainer_lesson .video-cover image{
@@ -23,6 +25,11 @@
 	width: 120rpx;
 	height: 120rpx;
 	z-index: 999;
+    /* background:#fff;*/
+}
+.video-bottom image{
+    width: 750rpx;
+    height:422rpx;
 }
 .container_lesson .videoContainer_lesson video{
 	width: 750rpx;
@@ -38,29 +45,15 @@
 } */
 
 
-/* 课件pdf开始 */
-.container_lesson .pdfContainer_lesson{
-	width: 100%;
-	height:282rpx;
-}
-.container_lesson .pdfContainer_lesson .pdfs{
-	width: 1008rpx;
-	height: 160rpx;
-	padding-left: 32rpx;
-}
-.container_lesson .pdfContainer_lesson .pdfs image{
-	width: 220rpx;
-	height: 160rpx;
-	padding-right: 32rpx;
-}
-
 /* 课程内容部分 */
 .lessonContent{
 	padding-bottom: 32rpx;
 	margin-bottom: 128rpx;
 }
+.lessonContent .content_lessonContent .contentTitle_lessonContent{
+	padding:0 30rpx 0rpx 32rpx;
+}
 .lessonContent .content_lessonContent .contentTitle_lessonContent text{
-	padding-left:32rpx;
 	font-size: 30rpx;
 	line-height: 26rpx;
 	color: #666666;
@@ -101,31 +94,4 @@
 .active{
 	color: #FFA334;
 }
-.rmb{
-	position:absolute;
-	left:250rpx;
-	font-size: 32rpx;
-	color:#FFA334;
-}
-.rmbImg{
-	width: 18rpx;
-	height:20rpx;
-	margin-right: 10rpx;
-}
-.rmb text{
-    font-size: 36rpx;
-    font-weight: bold;
-}
-.buyBtn{
-	width:180rpx;
-	height:76rpx;
-	background:#FFA334;
-	position:absolute;
-	left:532rpx;
-	top:26rpx;
-	border-radius:38rpx;
-	line-height:76rpx;
-    color: #fff;
-}
-
 

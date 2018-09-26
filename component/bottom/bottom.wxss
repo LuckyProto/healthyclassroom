@@ -1,0 +1,2 @@
+/* component/bottom/bottom.wxss */
+@import "../../pages/template/bottom/bottom.wxss"

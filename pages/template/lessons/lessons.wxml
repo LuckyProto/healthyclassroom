@@ -1,0 +1,33 @@
+<template name="video">
+  	<view  class="videoList" bindtap="navigateToLessons" data-class_group_id="{{class_group_id}}" data-doctor_num="{{doctor_num}}">
+	  	<view class='left-videoList'>
+			<image src='{{courseImgUrl}}'/>
+		</view>
+		<view class='right-videoList'>
+			<view class='courseName'>{{title}}</view>
+			<view class='doctorName'>
+				{{doctorName + ' '}}·{{' ' + doctorHospital}}					
+			</view>
+			<view class='job'>
+				<text class='jobTitle'>
+					{{jobTitle + ' '}}·{{' ' + rank}}
+				</text>
+				<text class='moreDoctor' wx:if="{{length > 1}}">等{{length}}人</text>
+			</view>
+			<view class='courseNumber'>
+				<image src='../../images/cutImg/lessons.png'></image>
+				<text>{{class_num}}节课</text>
+			</view>
+			<view class='store'>
+				<view class='purchased'>
+					<!-- <image src='../../images/cutImg/home_purchased.png'></image>
+					<span class='courseTip'>{{purchasedAmount}}人已购买</span> -->
+				</view>
+				<view class='price'>
+					<image src='../../images/cutImg/rmb.png'></image>
+					<span class='coursePrice'>{{price}}</span>
+				</view>
+			</view>
+    	</view>
+  	</view>
+</template>

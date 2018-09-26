@@ -1,0 +1,108 @@
+<!-- 套课医生 -->
+<template name="lessonsDoctor">
+	<view 
+		data-doctorid='{{doctorid}}'
+		class="lessonDoc" 
+		bindtap="navigateToDoctor" 
+		bindtouchstart='handleTarchStart' 
+		bindtouchend='handleTarchEnd'>
+		<view class="avatar_lessonDoc">
+			<image src="{{doctorImg}}"></image>
+		</view>
+		<view class="docDetail_lessonDoc">
+				<view class="docName_lessonDoc">	
+					<text>{{doctorName}}</text>
+					<image 
+					wx:if="{{isHostest}}" 
+					src="../../images/cutImg/label_highest.png">
+					</image>
+					<image 
+					wx:if="{{isFamous}}" 
+					src="../../images/cutImg/label_famous_doctor.png">
+					</image>
+					<image 
+					class="isCareful" 
+					wx:if="{{isCareful}}" 
+					src="../../images/cutImg/label_explanation.png">
+					</image>
+				</view>
+		</view>
+		<view class="background">
+			<text class="doctorHospital">{{doctorHospital}}</text>
+			<text class='specialty'>{{dept_name}}</text>
+			<text class='rank'>{{jobTitle}}</text>
+		</view>
+	</view>
+</template>
+<!-- 课程中的医生 -->
+<template name="lessonDoctor">
+	<view 
+		data-doctorid='{{doctorid}}'
+		class="_lessonDoc" 
+		bindtap="navigateToDoctor" 
+		bindtouchstart='handleTarchStart' 
+		bindtouchend='handleTarchEnd'>
+		<view class="avatar_lessonDoc">
+			<image class="doc_ava" src="{{doctorImg}}"></image>
+		</view>
+		<view class="_docDetail_lessonDoc">
+				<view class="docName_lessonDoc">	
+					<text>{{doctorName}}</text>
+					<image 
+					wx:if="{{isHostest}}" 
+					src="../../images/cutImg/label_highest.png">
+					</image>
+					<image 
+					wx:if="{{isFamous}}" 
+					src="../../images/cutImg/label_famous_doctor.png">
+					</image>
+					<image 
+					class="isCareful" 
+					wx:if="{{isCareful}}" 
+					src="../../images/cutImg/label_explanation.png">
+					</image>
+				</view>
+		</view>
+		<view class="_background">
+			<text>{{doctorHospital}}</text>
+			<text class='_specialty'>{{dept_name}} {{jobTitle}}</text>
+			<!-- <text class='_rank'>{{jobTitle}}</text> -->
+		</view>
+	</view>
+</template>
+<!-- 医生列表 -->
+<template name="doctors">
+	<view 
+		data-doctorid='{{doctorid}}'
+		class="lessonDoc" 
+		bindtap="navigateToDoctor" 
+		bindtouchstart='handleTarchStart' 
+		bindtouchend='handleTarchEnd'>
+		<view class="avatar_lessonDoc">
+			<image src="{{doctorImg}}"></image>
+		</view>
+		<view class="docDetail_lessonDoc">
+				<view class="docName_lessonDoc">	
+					<text>{{doctorName}}</text>
+					<image 
+					wx:if="{{isHostest}}" 
+					src="../../images/cutImg/label_highest.png">
+					</image>
+					<image 
+					wx:if="{{isFamous}}" 
+					src="../../images/cutImg/label_famous_doctor.png">
+					</image>
+					<image 
+					class="isCareful" 
+					wx:if="{{isCareful}}" 
+					src="../../images/cutImg/label_explanation.png">
+					</image>
+				</view>
+		</view>
+		<view class="background">
+			<text class="doctorHospital">{{doctorHospital}}</text>
+			<text class='specialty'>{{dept_name}}</text>
+			<text class='rank'>{{jobTitle}}</text>
+		</view>
+	</view>
+</template>
