@@ -23,7 +23,7 @@
 					<!-- <image src='../../images/cutImg/home_purchased.png'></image>
 					<span class='courseTip'>{{purchasedAmount}}人已购买</span> -->
 				</view>
-				<view class='price'>
+				<view wx:if="{{!isiOS && price != 0}}" class='price'>
 					<image src='../../images/cutImg/rmb.png'></image>
 					<span class='coursePrice'>{{price}}</span>
 				</view>

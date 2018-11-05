@@ -39,11 +39,16 @@
 		<view class="line"></view>
 
         <!-- 价格与购买 -->
-		<view>
+		<view wx:if="{{!isiOS}}">
             <!-- 价格 -->
 			<span class="rmb" wx:if="{{!isLogin || !isBuy}}">
-				<image class='rmbImg' src='../../images/cutImg/rmb.png'></image>
-				<text>{{coursePrice}}</text>
+				<image 
+                    wx:if="{{coursePrice != 0}}" 
+                    class='rmbImg' 
+                    src='../../images/cutImg/rmb.png'>
+                </image>
+				<text wx:if="{{coursePrice != 0}}">{{coursePrice}}</text>
+				<text wx:if="{{coursePrice == 0}}">免费</text>
 			</span>
             <!-- 未登录 显示登录按钮 -->
 			<button 
@@ -66,6 +71,10 @@
                 class="boughtBtn">
                 已购买
             </button>
+		</view>
+        <view wx:if="{{isiOS}}" class='ios'>
+            <image class="warnImage" src='../../images/cutImg/icon_warning.png'></image>
+            <text class="wangText">iOS设备暂不支持该功能</text>            
 		</view>
 	</view>
 </template>

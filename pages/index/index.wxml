@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <import src ="../template/lessons/lessons.wxml"/>
 <view class="container">
-    <loading hidden="{{hidden}}" >
+    <loading hidden="{{hidden}}">
         加载中...
     </loading>
   	<view class="title-index">
@@ -28,7 +28,7 @@
     	<block wx:for='{{videoList}}' wx:key="idx">
 	  		<template 
 			  	is="video" 
-			  	data="{{class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.dept_name, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price/100}}"/>
+			  	data="{{isiOS: isiOS, class_group_id: item.class_group_id, doctor_num: item.doctor_num,courseImgUrl: item.attList[1].resources_url, title: item.title, doctorName:item.groupDoctor.doctor_name, doctorHospital:item.groupDoctor.hospital_name, jobTitle:item.groupDoctor.dept_name, rank:item.groupDoctor.rank, length:item.doctor_num, class_num:item.class_num, purchasedAmount:item.purchasedAmount ? item.purchasedAmount : 0, price:item.price/100}}"/>
 		</block>
   	</view>
 	<view class="no-more" wx:if="{{is_all}}">没有更多数据</view>

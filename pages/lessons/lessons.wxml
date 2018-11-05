@@ -87,6 +87,7 @@
     <view style='width:128rpx; height:128rpx'></view>
 	<!-- 课程或套课底部 -->
     <component-bottom 
+        isiOS="{{isiOS}}"
         isLogin="{{isLogin}}" 
         class_group_id="{{lesson.class_group_id}}"
         title="{{lesson.title}}"

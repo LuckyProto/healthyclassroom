@@ -3,6 +3,7 @@ const util = require('../../utils/util.js')
 var app = getApp();
 Page({
     data: {
+        isiOS                   : false,
         //请求接口
         order_query_methodName  : 'sp_hc_credential_order_group_query',
         app_bought_methodName   : 'sp_hc_class_group_app_bought_query',
@@ -34,6 +35,23 @@ Page({
 			storedTab: true
 		})
 	},
+    onLoad: function () {
+        var self = this;
+        //设备信息
+        wx.getSystemInfo({
+            success: function (res) {
+                if (res.system.search('iOS') == 0) {
+                    self.setData({
+                        isiOS: true
+                    })
+                } else {
+                    self.setData({
+                        isiOS: false
+                    })
+                }
+            }
+        })
+    },
     //监听页面加载
     onShow: function (options) {
         var self = this;

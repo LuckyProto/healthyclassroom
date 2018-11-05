@@ -35,6 +35,7 @@ Component({
         }
     },
     data: {
+        isiOS                           : true,    //设备信息
         //请求接口
         order_query_methodName          : 'sp_hc_credential_order_group_query', //购买列表
         class_group_find_methodName     : 'sp_hc_class_group_app_find',         //购买的套课
@@ -53,6 +54,20 @@ Component({
         // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
         ready: function (event) {
             var self = this;
+            //设备信息
+            wx.getSystemInfo({
+                success: function (res) {
+                    if (res.system.search('iOS') == 0) {
+                        self.setData({
+                            isiOS: true
+                        })
+                    } else {
+                        self.setData({
+                            isiOS: false
+                        })
+                    }
+                }
+            })
             if (this.properties.isFromShare){
                 isFromShare: this.properties.isFromShare
             }

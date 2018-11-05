@@ -5,6 +5,7 @@ const app = getApp()
 const util = require('../../utils/util.js')
 Page({
     data: {
+        isiOS                          : false,  //设备信息 
         //请求参数
         banner_query_methodName        : 'sp_hc_banner_query',
         class_group_query_methodName   : 'sp_hc_class_group_app_query',  
@@ -31,24 +32,6 @@ Page({
 	    is_all: false, 
         
   	},
-    //分享函数
-  	// onShareAppMessage: function (ops) {
-	//   	if(ops.from === 'button'){
-	// 	  	// 来自页面内转发按钮
-	//   	}
-	//   	return {
-	// 	  	title: '顾氏珺安健康课堂',
-	// 	  	path: 'pages/index/index',
-	// 	  	success: function (res) {
-	// 		  	// 转发成功
-	// 		  	console.log("转发成功:" + JSON.stringify(res));
-	// 	  	},
-	// 	  	fail: function (res) {
-	// 		  	// 转发失败
-	// 		  	console.log("转发失败:" + JSON.stringify(res));
-	// 	  	}
-	//   	}
-  	// },
   	navigateToLessons: function (event){
 		let class_group_id = event.currentTarget.dataset.class_group_id;
 		let doctor_num = event.currentTarget.dataset.doctor_num;
@@ -89,9 +72,29 @@ Page({
             })
 		}
 	},
-    
+    onLoad: function(){
+        var self = this;
+        //设备信息
+        wx.getSystemInfo({
+            success: function (res) {
+                if (res.system.search('iOS') == 0) {
+                    self.setData({
+                        isiOS: true
+                    })
+                } else {
+                    self.setData({
+                        isiOS: false
+                    })
+                }
+            }
+        })
+    },
   	onShow: function () {
         var self = this;
+        // self.setData({
+        //     isiOS: app.globalData.isiOS,
+        // })
+        // console.log(this.data.isiOS)
 	  	setTimeout(function(){
             //获取轮播图数据
             var param = {

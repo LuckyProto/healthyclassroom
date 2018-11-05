@@ -11,6 +11,7 @@ App({
         // wx.removeStorageSync('sign');
     },
   	globalData: {
+        isiOS   : false,
         openid  : undefined, 
 		sign    : undefined,
     	userInfo: null

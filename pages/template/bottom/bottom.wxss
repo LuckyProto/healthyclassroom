@@ -88,3 +88,19 @@
 	line-height:76rpx;
     color:#fff;
 }
+.ios{
+    margin-left: 215rpx;
+    color:#FFA334;
+}
+.warnImage{
+    position:relative;
+    top: 6rpx;
+    width: 28rpx;
+	height:28rpx;
+	margin-right: 16rpx; 
+}
+.wangText{
+    position:relative;
+    top: 2rpx;
+    font-size: 28rpx;
+}

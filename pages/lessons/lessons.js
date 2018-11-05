@@ -7,6 +7,7 @@ Page({
     * 组件的初始数据
     */
   	data: {
+        isiOS                       : false, //设备信息
         isLogin                     : false,
         //请求接口
         class_group_find_methodName : 'sp_hc_class_group_app_find',
@@ -77,7 +78,7 @@ Page({
             //是否处于登录状态
             if (app.globalData.userInfo) {
                 this.setData({
-                    isLogin: true
+                    isLogin : true
                 })
             } else {
                 util.login(app);
